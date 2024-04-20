@@ -1,0 +1,297 @@
+*{
+    box-sizing: border-box;
+}
+/* selected colors for the entire project by giving them variable names for identity*/
+:root{
+    --pink: rgb(240, 69, 43);
+    --pinkAlt: rgb(199, 50, 27);
+    --green: rgb(86, 141, 51);
+    --greenAlt: rgb(1, 105, 1);
+    --greentexiary: rgb(32, 150, 124);
+    --blue: rgb(30, 144, 255);
+    --sec_white: white;
+    --sec_gray: rgb(248, 248, 248);
+    --texiary_yellow: rgb(255, 238, 136);
+    --texiary_brown: rgb(204, 187, 168);
+    --milkcolor: rgb(241, 238, 236);
+    --black: black;
+    --border-radius: 30px 30px 2px;
+    --font-size: 1.2rem;
+}
+
+div{
+    font-size: var(--font-size);
+}
+
+/* Styling for navbar by adding spacing at the extreme left and right sides*/
+nav{
+    padding: 0px 15px;
+    background-color: var(--sec_gray);
+}
+
+/* Styling the nave items and adjusting them using flex attribute */
+.items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 250px;
+}
+
+.items a{
+    text-decoration: none; /* Removes underlined link from text */
+    color: var(--black);
+    font-size: 1.2.rem;
+    transition: 0.35s;
+    font-weight: 600; /* setting the text items to bold */
+}
+
+.items a:hover{
+    color: var(--greenAlt);
+    transition-duration: 500ms;
+    border-bottom: 2px solid var(--greenAlt);
+}
+
+.button{
+    background-color: var(--greenAlt);
+    border: none;
+    font-size: 1.2rem;
+    padding: 7px 20px;
+    color: var(--sec_white);
+    transition: 300ms;
+    border-radius: var(--border-radius);
+}
+
+.button:hover{
+    transition: 300ms;
+    background-color: var(--sec_white);
+    border: 3px solid var(--greenAlt);
+    color: var(--black);
+    font-weight: 600;
+}
+
+/* Setting the mobile nav to hidden in destop view */
+.mobile_nav{
+    display: none;
+}
+
+/* Setting the nav bar items to hidden */
+.mobile_nav .items_mobile{
+    display: none;
+}
+
+.items_mobile a{
+    text-decoration: none; /* Removes underlined link from text */
+    color: var(--black);
+    font-size: 1.2.rem;
+    font-weight: 600; /* setting the text items to bold */
+    transition: 2s;
+}
+
+.items_mobile a:hover{
+    color: var(--greenAlt);
+    transition-duration: 500ms;
+    border-bottom: 2px solid var(--greenAlt);
+}
+
+/* background color */
+.backgroundChanger{
+    position: fixed;
+    text-align: end;
+    padding-top: 10px;
+    top: 300px;
+    cursor: pointer;
+}
+.backgroundChanger>.background{
+    background-color: var(--milkcolor);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    padding: 1px 5px 7px 1px;
+}
+
+#background{
+    font-size: 1.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--milkcolor);
+}
+.whiteMode{
+    background-color: var(--sec_white);
+    color: var(--black);
+}
+.darkMode{
+    background-color: var(--black);
+    color: var(--sec_white);
+}
+
+.create-account{
+    line-height: 20;
+}
+
+.create-account b{
+    color: var(--greenAlt);
+}
+
+
+/* Styling section for form */
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    justify-content: center;
+    align-items: center;
+
+    /*background: url('');
+    background-repeat: no-repeat;
+    display: flex;
+    width: 100%;
+    height: 100vh;*/
+}
+
+/* Setting bottom space between each form section */ 
+form>#formControl{
+    margin-bottom: 20px;
+}
+
+/* setting form inputs in 2 columns using grid attribute */
+.fullname, .email, .location_age, .password_container, .environ_gender{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+/* Setting form inputs widths to 70% */
+.fullname input, .email input, .password_container input, .location_age input, form textarea{
+    width: 70%;
+}
+
+/*.email{
+    display: grid;
+    grid-template-columns: auto auto;
+}*/
+
+/* Aligning environmental interest check box in a single column */
+.environmental_interest{
+    display: flex;
+    flex-direction: column;
+}
+
+.environmental_interest_visibility{
+    display: none;
+    transition: 2s;
+}
+
+#environmental_interest_arrowup{
+    display: none;
+}
+
+
+
+/* setting the maximum width to static */
+@media screen and (max-width: 2000px) {
+    nav, .navbar, .navbar_mobile{
+        max-width: 2000px;
+    }
+
+    main{
+        min-width: 360px;
+    }
+}
+
+
+/* Designing for Responsive view on all devices for width of 768px*/
+@media screen and (max-width: 768px){
+    /* Setting the desktop nav bar to hidden in a screen size below 768px */
+    .desktop_nav{
+        display: none;
+    }
+
+   .navbar_mobile{
+    padding: 20px 0px;
+   }
+
+    /* Settin the mobile nav bar to visibile in screen size below 768px for mobile views */
+    .mobile_nav{
+        display: grid;
+        min-width: 100%;
+    }
+
+    .mobile_nav>.navbar_mobile{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .mobile_nav .logo{
+        width: 300px;
+    }
+
+    @keyframes Chester{
+        from{
+            transition: 200ms;
+        }
+        to{
+            transition: 500ms;
+        }
+    }
+
+    .mobile_nav .items_mobile{
+        width: 170px;
+        max-height: 0;
+        transition: 300ms ease-in-out;
+        animation: 0.6s;
+    }
+
+    .create-account{
+        line-height: 8;
+    }
+
+    .form{
+        height: 100vh;
+    }
+    /* Removing spaces from each section as all section is now in a single line */
+    form>#formControl{
+        margin-bottom: 0px;
+    }
+
+    /* Adding spaces between field input */
+    .div_mobile_space{
+        margin-bottom: 17px;
+    }
+
+    /* centering the form collections */ 
+    .fullname, .email, .location_age, .password_container, .environ_gender, .product_service{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .fullname input, .email input, .password_container input, .location_age input, .product_service input, form textarea{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .mobile_nav .logo{
+        width: 100%;
+    }
+
+    .mobile_nav .items_mobile{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    nav, .navbar, .navbar_mobile{
+        min-width: 360px;
+    }
+
+    nav{
+        width: 373px;
+    }
+
+    main{
+        min-width: 360px;
+    }
+}
