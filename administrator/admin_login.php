@@ -1,7 +1,7 @@
 <?php
 // Begin a new session
 session_start();
-require_once('database.php');
+require_once('../database.php');
 
 // Connect to database
 $conn = db_connect();

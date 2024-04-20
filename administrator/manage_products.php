@@ -1,6 +1,7 @@
 <?php
-require_once('admin_access_control');
-require_once('database.php');
+//require_once('admin_access_control.php');
+require_once('../database.php');
+$conn = db_connect();
 ?>
 
 <h3>Manage Products</h3>
@@ -37,5 +38,5 @@ while ($row = $result->fetch_assoc()) { ?>
 <td><?php echo $row['Price']; ?></td>
 <td><?php echo $row['Price_category']; ?></td>
 <td><a href="student_update.php? Product_id = <?php echo $row['Product_id']; ?>">
-update</a>/<a href = "student_delete.php? Product_id = <?php echo $row['Product_id']; ?>">
+Update</a>/<a href = "student_delete.php? Product_id = <?php echo $row['Product_id']; ?>">
 Delete</a></td> </tr> <?php } } ?>

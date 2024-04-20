@@ -1,5 +1,5 @@
 <?php
-require_once('admin_access_control');
+require_once('admin_access_control.php');
 require_once('database.php');
 
 
