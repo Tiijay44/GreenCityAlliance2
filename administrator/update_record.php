@@ -2,6 +2,7 @@
 require_once('admin_access_control');
 require_once('database.php');
 
+
 $conn = db_connect();
 
 if (isset($_POST["Submit"])) {

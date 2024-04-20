@@ -4,6 +4,8 @@ require_once('database.php');
 
 $conn = db_connect();
 
+
+// Create a new area
 if (isset($_POST["Submit"])) {
     $area_name = $_POST["area_name"];
     $council_id =  $_POST["council_id"];

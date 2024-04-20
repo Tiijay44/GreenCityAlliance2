@@ -1,8 +1,12 @@
 <?php
+// Begin a new session
 session_start();
 require_once('database.php');
 
+// Connect to database
 $conn = db_connect();
+
+// Check and Process incoming form data
 if (isset($_POST["Submit"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
