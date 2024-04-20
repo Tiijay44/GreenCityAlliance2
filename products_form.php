@@ -1,8 +1,11 @@
 <?php
 require_once('database.php');
 
+// Connect to database
 $conn = db_connect();
 
+
+// Check and Process incoming form data
 if (isset($_POST["Submit"])) {
     $company_id = $_POST["company_id"];
     $product_name =  $_POST["product_name"];
