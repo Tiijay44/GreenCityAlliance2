@@ -1,0 +1,9 @@
+.product_service{
+    width: 70%;
+    margin-bottom: 20px;
+}
+
+.product_service input{
+    width: 50%;
+    padding: 5px 10px;
+}

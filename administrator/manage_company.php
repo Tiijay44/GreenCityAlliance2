@@ -35,6 +35,6 @@ while ($row = $result->fetch_assoc()) { ?>
 <td><?php echo $row['Email']; ?></td> <td><?php echo $row['Password']; ?></td>
  <td><?php echo $row['Phone_number']; ?></td>
 <td><?php echo $row['Product_Services']; ?></td>
-<td><a href="student_update.php? Company_id = <?php echo $row['Company_id']; ?>">
-Update</a>/<a href = "student_delete.php? Company_id = <?php echo $row['Company_id']; ?>">
+<td><a href="update_company.php? Company_id = <?php echo $row['Company_id']; ?>">
+Update</a>/<a href = "delete_company.php? Company_id = <?php echo $row['Company_id']; ?>">
 Delete</a></td> </tr> <?php } } ?>

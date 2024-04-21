@@ -20,7 +20,8 @@ if (isset($_POST["Submit"])) {
     $result = $conn->query($sql);
 
     if ($result == true) {
-        echo "Resident Successfully Inserted";
+        echo "Product Successfully Inserted";
+        header("Location: index.php");
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;;
     }

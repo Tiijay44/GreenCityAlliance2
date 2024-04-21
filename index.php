@@ -1,6 +1,7 @@
 <?php require_once('database.php');
+require_once('sme_frontend.php');
 $conn = db_connect();
 
-require_once('resident_frontend.php');
+
 
 ?>

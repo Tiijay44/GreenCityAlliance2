@@ -9,7 +9,7 @@ $conn = db_connect();
 // Check and Process incoming form data
 if (isset($_POST["Submit"])) {
     $email = $_POST["email"];
-    $password = $_POST["password"];
+    $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
     $sql_query = "SELECT * FROM admin WHERE
 admin_email = '$email' AND admin_pass = '$password'";

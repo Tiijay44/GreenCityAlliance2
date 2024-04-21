@@ -41,6 +41,6 @@ while ($row = $result->fetch_assoc()) { ?>
 <td><?php echo $row['Gender']; ?></td>
 <td><?php echo $row['Location']; ?></td>
 <td><?php echo $row['Environmental_interests']; ?></td>
-<td><a href = "student_update.php? Resident_id = <?php echo $row['Resident_id']; ?>">
-Update</a>/<a href = "student_delete.php? Resident_id = <?php echo $row['Resident_id']; ?>">
+<td><a href = "update_resident.php? Resident_id = <?php echo $row['Resident_id']; ?>">
+Update</a>/<a href = "delete_resident.php? Resident_id = <?php echo $row['Resident_id']; ?>">
 Delete</a></td> </tr> <?php } } ?>
