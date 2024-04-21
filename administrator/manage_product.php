@@ -37,6 +37,6 @@ while ($row = $result->fetch_assoc()) { ?>
 <td><?php echo $row['Environmental_benefits']; ?></td>
 <td><?php echo $row['Price']; ?></td>
 <td><?php echo $row['Price_category']; ?></td>
-<td><a href="update_product.php? Product_id = <?php echo $row['Product_id']; ?>">
+<td><a href="update_product_frontend.php? Product_id = <?php echo $row['Product_id']; ?>">
 Update</a>/<a href = "delete_product.php? Product_id = <?php echo $row['Product_id']; ?>">
 Delete</a></td> </tr> <?php } } ?>

@@ -1,6 +1,6 @@
 <?php
 // Manage existing companies
-require_once('admin_access_control.php');
+//require_once('admin_access_control.php');
 require_once('../database.php');
 $conn = db_connect();
 ?>
@@ -11,7 +11,7 @@ $conn = db_connect();
 <tbody>
 <tr>
 <td colspan="8">
-<p align="lef"> <a href="sme_form.php"> Add Company</a> </p>
+<p align="left"> <a href="sme_form.php"> Add Company</a> </p>
 </td>
 </tr>
 <tr>
@@ -31,10 +31,15 @@ $result= $conn->query($sql_query);
 if ($result->num_rows > 0) {
 while ($row = $result->fetch_assoc()) { ?>
 <tr>
-<td><?php echo $row['Company_id']; ?> </td> <td><?php echo $row['Company_name']; ?></td>
-<td><?php echo $row['Email']; ?></td> <td><?php echo $row['Password']; ?></td>
+<td><?php echo $row['Company_id'];?></td> 
+<td><?php echo $row['Company_name'];?></td>
+
+<td><?php echo $row['Email']; ?></td> 
+<td><?php echo $row['Password']; ?></td>
+
  <td><?php echo $row['Phone_number']; ?></td>
 <td><?php echo $row['Product_Services']; ?></td>
-<td><a href="update_company.php? Company_id = <?php echo $row['Company_id']; ?>">
-Update</a>/<a href = "delete_company.php? Company_id = <?php echo $row['Company_id']; ?>">
+
+<td><a href="update_company_frontend.php?Company_id=<?php echo $row['Company_id']; ?>">
+Update</a>/<a href = "delete_company.php?Company_id=<?php echo $row['Company_id']; ?>">
 Delete</a></td> </tr> <?php } } ?>
