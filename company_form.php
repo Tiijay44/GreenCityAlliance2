@@ -4,7 +4,6 @@ require_once('database.php');
 $conn = db_connect();
 
 
-
 if(isset($_POST["Submit"])) {
   $company_name = $_POST["company_name"];
   $email =  $_POST["email"];
@@ -12,7 +11,7 @@ if(isset($_POST["Submit"])) {
   $phone_number = $_POST["phone_number"];
   $product_services = $_POST["product_services"];
 
-  $sql = "INSERT INTO SME(company_name,email,password,phone_number, product_services) VALUES('$company_name', '$email', '$password','$phone_number', '$product_services')";
+  $sql = "INSERT INTO Company(company_name,email,password,phone_number, product_services) VALUES('$company_name', '$email', '$password','$phone_number', '$product_services')";
   $result = $conn->query($sql);
 
   if ($result == true) {

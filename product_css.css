@@ -1,0 +1,15 @@
+.price_category_visibility{
+    display: none;
+}
+
+.size_container input{
+    width: 58% ;
+}
+
+
+@media screen and (max-width: 768px) {
+    .size_container input{
+        width: 100% ;
+    }
+    
+}

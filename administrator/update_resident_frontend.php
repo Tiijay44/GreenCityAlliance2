@@ -1,37 +1,38 @@
 <?php
-require_once('admin_access_control.php');
+//require_once('admin_access_control.php');
 require_once('../database.php');
 $conn = db_connect();
 
-$company_id = isset($_GET['company_id']) ? $_GET['company_id'] : null;
+$resident_id = isset($_GET['Resident_id']);
 
-if ($company_id) {
-    $sql = "SELECT * FROM sme WHERE company_id = $company_id";
+if (isset($_GET['Resident_id'])) {
+
+    $sql = "SELECT * FROM Resident WHERE Resident_id = $resident_id";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         ?>
         <h2>Update Company Data</h2>
-        <form action="update.php" method="POST">
-            <input type="hidden" name="resident_id" value="<?php echo $row['resident_id']; ?>">
+        <form action="update_resident_backend.php?Resident_id=<?php echo $row['Resident_id']; ?>" method="POST">
+            <input type="hidden" name="resident_id" value="<?php echo $row['Resident_id']; ?>">
             <label for="firstname">First Name:</label>
-            <input type="text" name="firstname" id="firstname" value="<?php echo $row['firstname']; ?>"><br><br>
+            <input type="text" name="firstname" id="firstname" value="<?php echo $row['FirstName']; ?>"><br><br>
             <label for="lastname">Last Name:</label>
-            <input type="text" name="lastname" id="lastname" value="<?php echo $row['lastname']; ?>"><br><br>
+            <input type="text" name="lastname" id="lastname" value="<?php echo $row['LastName']; ?>"><br><br>
             <label for="email">Email:</label>
-            <input type="text" name="email" id="email" value="<?php echo $row['email']; ?>"><br><br>
+            <input type="text" name="email" id="email" value="<?php echo $row['Email']; ?>"><br><br>
             <label for="age">Age:</label>
-            <input type="text" name="age" id="age" value="<?php echo $row['age']; ?>"><br><br>
+            <input type="text" name="age" id="age" value="<?php echo $row['AGE']; ?>"><br><br>
             <label for="password">Password:</label>
-            <input type="text" name="password" id="password" value="<?php echo $row['password']; ?>"><br><br>
+            <input type="text" name="password" id="password" value="<?php echo $row['Password']; ?>"><br><br>
             <label for="gender">Gender:</label>
-            <input type="text" name="gender" id="gender" value="<?php echo $row['gender']; ?>"><br><br>
+            <input type="text" name="gender" id="gender" value="<?php echo $row['Gender']; ?>"><br><br>
             <label for="location">Location:</label>
-            <input type="text" name="location" id="location" value="<?php echo $row['location']; ?>"><br><br>
+            <input type="text" name="location" id="location" value="<?php echo $row['Location']; ?>"><br><br>
             <label for="environmental_interest">Environmental Interest:</label>
-            <input type="text" name="environmental_interest" id="environmental_interest" value="<?php echo $row['environmental_interest']; ?>"><br><br>
-            <button type="submit">Update</button>
+            <input type="text" name="environmental_interest" id="environmental_interest" value="<?php echo $row['Environmental_interests']; ?>"><br><br>
+            <button type="submit" name="Submit">Update</button>
         </form>
         <?php
     } else {

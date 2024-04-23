@@ -12,7 +12,7 @@ if (isset($_POST["Submit"])) {
     $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
     $sql_query = "SELECT * FROM admin WHERE
-admin_email = '$email' AND admin_pass = '$password'";
+  admin_email = '$email' AND admin_pass = '$password'";
     $result = $conn->query($sql_query);
 
     if ($result && $result->num_rows > 0) {

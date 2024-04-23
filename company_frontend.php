@@ -62,7 +62,7 @@
             <button id="background" type="button"><i class='backgroundNew bx bxs-moon' ></i></button>
         </div>
         
-        <form class="form" id="myForm" action="sme_form.php" method="post">
+        <form class="form" id="myForm" action="company_form.php" method="post">
             <div class="create-account">
                 <p><b>Create Account &nbsp;</b><span>Now to Green Alliance?</span></p>
             </div>

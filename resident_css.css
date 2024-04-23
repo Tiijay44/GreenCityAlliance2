@@ -5,8 +5,9 @@
 :root{
     --pink: rgb(240, 69, 43);
     --pinkAlt: rgb(199, 50, 27);
+    --red: red;
     --green: rgb(86, 141, 51);
-    --greenAlt: rgb(1, 105, 1);
+    --greenAlt: rgba(0, 129, 0, 0.945);
     --greentexiary: rgb(32, 150, 124);
     --blue: rgb(30, 144, 255);
     --sec_white: white;
@@ -15,6 +16,7 @@
     --texiary_brown: rgb(204, 187, 168);
     --milkcolor: rgb(241, 238, 236);
     --black: black;
+    --grey: rgba(24, 23, 23, 0.301);
     --border-radius: 30px 30px 2px;
     --font-size: 1.2rem;
 }
@@ -93,6 +95,20 @@ nav{
     border-bottom: 2px solid var(--greenAlt);
 }
 
+/* Code to give space between the body and footer */
+main{
+    margin-bottom: 100px;
+}
+
+/* Styling for successful message */
+.success_messagebox{
+    color: var(--greenAlt);
+    text-align: center;
+    margin-bottom: 80px;
+    font-size: 1.2rem;
+    font-weight: 650;
+}
+
 /* background color */
 .backgroundChanger{
     position: fixed;
@@ -101,6 +117,8 @@ nav{
     top: 300px;
     cursor: pointer;
 }
+
+
 .backgroundChanger>.background{
     background-color: var(--milkcolor);
     width: 25px;
@@ -124,8 +142,13 @@ nav{
     color: var(--sec_white);
 }
 
+.footerdarkMode{
+    background-color: var(--grey);
+}
+
 .create-account{
-    line-height: 20;
+    line-height: 15;
+    /* margin-top: 200px; */
 }
 
 .create-account b{
@@ -138,10 +161,9 @@ nav{
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    /* height: 80vh; */
     justify-content: center;
     align-items: center;
-
     /*background: url('');
     background-repeat: no-repeat;
     display: flex;
@@ -163,17 +185,33 @@ form>#formControl{
 /* Setting form inputs widths to 70% */
 .fullname input, .email input, .password_container input, .location_age input, form textarea{
     width: 70%;
+    padding: 5px 10px;
 }
 
+.errorBox{
+    color: var(--red);
+}
 /*.email{
     display: grid;
     grid-template-columns: auto auto;
 }*/
 
 /* Aligning environmental interest check box in a single column */
+.div_mobile_space_cursor{
+    cursor: pointer;
+}
+
 .environmental_interest{
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+}
+
+.environmental_interest span:hover{
+    background-color: var(--greenAlt);
+    width:30%;
+    color: var(--sec_white);
+    padding: 7px 0px 7px 10px;
 }
 
 .environmental_interest_visibility{
@@ -186,15 +224,37 @@ form>#formControl{
 }
 
 
+/* Section for footer styling */
+footer{
+    background-color: var(--greenAlt);
+}
+
+.footerFlex{
+    display: flex;
+    justify-content: space-between;
+    color: var(--sec_white);
+    padding: 40px 0px 0px 0px;
+}
+
+.services_footer a, .support a{
+    text-decoration: none;
+    color: var(--sec_white);
+}
+
+
+.socialHandles i{
+    color: var(--sec_white);
+}
+
 
 /* setting the maximum width to static */
 @media screen and (max-width: 2000px) {
-    nav, .navbar, .navbar_mobile{
+    nav, .navbar, .navbar_mobile, footer, main{
         max-width: 2000px;
     }
 
-    main{
-        min-width: 360px;
+    main, footer{
+        min-height: 360px;
     }
 }
 
@@ -247,12 +307,12 @@ form>#formControl{
         line-height: 8;
     }
 
-    .form{
-        height: 100vh;
-    }
+    /* .form{
+        height: 80vh;
+    } */
     /* Removing spaces from each section as all section is now in a single line */
     form>#formControl{
-        margin-bottom: 0px;
+        /* margin-bottom: 20px; */
     }
 
     /* Adding spaces between field input */
@@ -269,6 +329,16 @@ form>#formControl{
 
     .fullname input, .email input, .password_container input, .location_age input, .product_service input, form textarea{
         width: 100%;
+    }
+
+    /* .residentSignupbtn{
+        margin-bottom: 100px;
+    } */
+
+    .footerFlex{
+        display: grid;
+        grid-template-columns: auto auto;
+        padding: 20px 15px 0px 30px;
     }
 }
 
@@ -291,7 +361,7 @@ form>#formControl{
         width: 373px;
     }
 
-    main{
+    main, footer, .footerFlex{
         min-width: 360px;
     }
 }
