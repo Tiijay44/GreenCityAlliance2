@@ -1,16 +1,17 @@
-<head>
-  <title>Product Search</title>
-  <link rel="stylesheet" href="manage_company_css.css">
-</head>
-
 
 <?php
-// Manage existing companies
+
+// **Require database connection functions:**
+// **Establish database connection:**
 //require_once('admin_access_control.php');
 require_once('../database.php');
+
 $conn = db_connect();
 ?>
 
+<head>
+  <link rel="stylesheet" href="manage_company_css.css">
+</head>
 
 <h3>Manage Company</h3>
 <table width="402" border="1">

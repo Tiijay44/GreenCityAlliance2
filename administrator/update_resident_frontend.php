@@ -1,4 +1,14 @@
 <?php
+// **Require database connection functions:**
+// **Establish database connection:**
+// **Extract company ID from URL parameter:**
+// - Check if 'Company_id' exists in the URL using isset().
+// - If not set, display an error message.
+// **Process company update request (if company ID is provided):**
+// **Construct SQL select query:**
+// **Execute select query:**
+// **Handle query result:**
+// **Display update form pre-populated with company data:**
 //require_once('admin_access_control.php');
 require_once('../database.php');
 $conn = db_connect();

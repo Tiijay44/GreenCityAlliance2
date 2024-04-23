@@ -1,5 +1,7 @@
 <?php
-// Manage existing companies
+// **Require database connection functions:**
+// **Establish database connection:**
+//require_once('admin_access_control.php');
 //require_once('admin_access_control.php');
 require_once('../database.php');
 $conn = db_connect();

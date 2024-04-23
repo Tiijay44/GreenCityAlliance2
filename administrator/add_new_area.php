@@ -1,4 +1,11 @@
 <?php
+// **Require necessary files:**
+// **Establish database connection:**
+// **Process form submission for creating a new area:**
+// **Extract form data:**
+// **Construct SQL insert statement:**
+// **Execute insert query:**
+// **Handle insert result:**
 require_once('admin_access_control');
 require_once('database.php');
 

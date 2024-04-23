@@ -1,4 +1,12 @@
 <?php
+// **Require database connection functions:**
+// **Establish database connection:**
+// **Process form submission for creating a new company:**
+// **Extract form data:**
+// **Construct SQL insert statement:**
+// **Execute insert query:**
+// **Handle insert result:**
+  
 require_once('database.php');
 
 $conn = db_connect();
@@ -17,8 +25,12 @@ if (isset($_POST["Submit"])) {
     $result = $conn->query($sql);
 
     if ($result == true) {
-        echo "Resident Successfully Inserted";
-      //  header("Location: index.php");
+        echo '<script>
+        alert("Resident Successfully Inserted");
+        setTimeout(function() {
+          window.location.href = "index.php";
+        },5000); 
+      </script>';
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;;
     }

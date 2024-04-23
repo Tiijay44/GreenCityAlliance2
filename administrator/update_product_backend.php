@@ -1,4 +1,13 @@
 <?php
+// **Require necessary files:**
+// **Establish database connection:**
+// **Get company ID from URL parameter:**
+// **Process form submission:**
+// **Extract form data:**
+// **Construct SQL update statement:**
+// **Execute update query:**
+// **Handle update result:**
+// **Close database connection:**
 // require_once('admin_access_control.php');
 require_once('../database.php');
 $conn = db_connect();
@@ -18,12 +27,14 @@ if (isset($_POST["Submit"])) {
     $result = $conn->query($sql);
 
     if ($result === TRUE) {
-        echo "Product updated successfully!";
-    } 
-    else {
+        echo '<script>
+        alert("Product updated successfully!");
+        setTimeout(function() {
+          window.location.href = "index.php";
+        }, 5000); 
+      </script>';
+    } else {
         echo "Error updating data: " . $conn->error;
     }
 }
-
-
 db_disconnect($conn);

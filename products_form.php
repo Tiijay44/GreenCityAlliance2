@@ -1,11 +1,16 @@
 <?php
+// **Require database connection functions:**
+// **Establish database connection:**
+// **Process form submission for creating a new company:**
+// **Extract form data:**
+// **Construct SQL insert statement:**
+// **Execute insert query:**
+  // **Handle insert result:**
+  
 require_once('database.php');
 
-// Connect to database
 $conn = db_connect();
 
-
-// Check and Process incoming form data
 if (isset($_POST["Submit"])) {
     $company_id = $_POST["company_id"];
     $product_name =  $_POST["product_name"];
@@ -20,8 +25,12 @@ if (isset($_POST["Submit"])) {
     $result = $conn->query($sql);
 
     if ($result == true) {
-        echo "Product Successfully Inserted";
-        header("Location: index.php");
+        echo '<script>
+        alert("Product Successfully Inserted");
+        setTimeout(function() {
+          window.location.href = "index.php";
+        },5000); 
+      </script>';
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;;
     }

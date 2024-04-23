@@ -1,13 +1,19 @@
 <?php
-// Begin a new session
+// **Start user session:**
+// - Initiate session management using session_start()
+// **Require necessary files:**
+// **Process login form submission:**
+// **Establish database connection:**
+// **Construct SQL query for admin authentication:**
+// **Handle authentication result:**
+
 session_start();
 require_once('../database.php');
 
-// Connect to database
 $conn = db_connect();
 
-// Check and Process incoming form data
 if (isset($_POST["Submit"])) {
+
     $email = $_POST["email"];
     $password = password_hash($_POST["password"], PASSWORD_BCRYPT);
 
@@ -27,5 +33,5 @@ if (isset($_POST["Submit"])) {
 }
 
 if (isset($msg)) {
-    echo "<p>$msg</p>";   
+    echo "<p>$msg</p>";
 }
