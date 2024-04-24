@@ -1,53 +1,3 @@
-<?php
-require_once('database.php');
-$conn = db_connect();
-?>
-
-
-<h3>All Products</h3>
-<table width="402" border="1">
-    <tbody>
-        <tr>
-            <td colspan="8">
-            </td>
-        </tr>
-        <tr>
-            <td width="18">Product_name:</td>
-            <td width="18">Company_name:</td>
-            <td width="380">Description:</td>
-            <td width="150">Size: </td>
-            <td width="109">Price:</td>
-            <td width="91">Price Category: </td>
-            <td width="91">Environmental_Benefits: </td>
-            <td width="91">Manage: </td>
-        </tr>
-
-        <?php
-        $sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
-FROM products_services p
-INNER JOIN company c ON p.Company_id = c.Company_id;";
-
-        $result = $conn->query($sql_query);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) { ?>
-                <tr>
-                    <td><?php echo $row['Product_name']; ?></td>
-                    <td><?php echo $row['Company_name']; ?>
-                    <td><?php echo $row['Description']; ?></td>
-                    <td><?php echo $row['Size']; ?></td>
-                    <td><?php echo $row['Price']; ?></td>
-                    <td><?php echo $row['Price_category']; ?></td>
-                    <td><?php echo $row['Environmental_benefits']; ?></td>
-                    <td><a href="cast_vote.php?Product_name=<?php echo $row['Product_name']; ?>">
-                            VOTE</a></td
-                </tr> <?php }
-} ?>
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,10 +7,10 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="/Frontend/mainpages/index.css">
-    <link rel="stylesheet" href="/Frontend/mainpages/admin/dashboard.css">
-    <link rel="stylesheet" href="/Frontend/Resident/resident.css">
-    <link rel="stylesheet" href="products_menu.css">
+    <link rel="stylesheet" href="../public/index.css">
+    <link rel="stylesheet" href="../public/dashboard.css">
+    <link rel="stylesheet" href="../public/resident.css">
+    <link rel="stylesheet" href="../public/products_menu.css">
 </head>
 <body>
         <!--Section for nav bar-->
@@ -84,6 +34,19 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                         <button type="submit" id="search" class="button">Search</button>
                     </form>
                 </div>
+
+                <div class="display_signup">
+                <!-- <p><i class='bx bx-log-in'></i> Sign in business</p> -->
+
+                <div class="sign_up">
+                    <p>Register Business</p>
+                    <div class="registeration">
+                        <p><a href="../Resident/resident.html">Resident Registration</a></p>
+                        <p><a href="../businesses/business_signup.html">Business Registration</a></p>
+                        <p><a href="../products_services/products.html">Product Registration</a></p>
+                    </div>
+                </div>
+            </div>
             </div>
         </nav>
     
@@ -116,6 +79,34 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                 </div>
             </div>
         </nav> <!--End of nav bar-->
+
+
+        <?php
+require_once('database.php');
+$conn = db_connect();
+?>
+
+
+<!-- <h3>All Products</h3>
+<table width="402" border="1">
+    <tbody>
+        <tr>
+            <td colspan="8">
+            </td>
+        </tr>
+        <tr>
+            <td width="18">Product_name:</td>
+            <td width="18">Company_name:</td>
+            <td width="380">Description:</td>
+            <td width="150">Size: </td>
+            <td width="109">Price:</td>
+            <td width="91">Price Category: </td>
+            <td width="91">Environmental_Benefits: </td>
+            <td width="91">Manage: </td>
+        </tr> -->
+
+    
+
 
         <main>
              <!-- Background changer-->
@@ -169,7 +160,7 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                         <h4>Price</h4>
                     </div>
 
-                    <form action="" method="get" onsubmit="return validateForm()" class="product_price">
+                    <form action="../../products_form.php" method="get" onsubmit="return validateForm()" class="product_price">
                         <div class="under_seventy">
                             <input type="checkbox" name="under_seventy" id="under_seventy">
                             <label for="under_seventy">Under &#163;70 </label>
@@ -201,6 +192,16 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                     </form>
                 </div>
 
+                <?php
+        $sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
+FROM products_services p
+INNER JOIN company c ON p.Company_id = c.Company_id;";
+
+        $result = $conn->query($sql_query);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) { ?>
+
                 <table class="viewMenuFlex">
                     <tbody>
                         <tr>
@@ -218,23 +219,27 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                         <tr>
                             <td class="foodName">
                                 <article>                     
-                                    <h4>Product Name</h4>
-                                    <h4>Company Name</h4>
+                                    <h4><td><?php echo $row['Product_name']; ?></td></h4>
+                                    <h4><td><?php echo $row['Company_name']; ?></td></h4>
                                 </article>
                             </td>
-                            <td width="1200px" class="foodArticle product_description foodArticleFlex">Product Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, alias quibusdam accusamus veritatis optio cupiditate suscipit esse dolores fugit corrupti itaque nulla nobis at voluptas excepturi doloribus iusto rem totam.</td>
+                            <td width="1200px"><?php echo $row['Description']; ?></td>
                             <td class="product_size">Size</td>
                         </tr>
                 
                         <tr>
-                            <td class="foodPrice viewMenuAdd">&#163; Price</td>
-                            <td>Environmental Benefits</td>
+                            <td class="foodPrice viewMenuAdd">&#163; <?php echo $row['Size']; ?></td>
+                            <td><?php echo $row['Price_category']; ?></td>
                         </tr>
-                        <tr>
-                            <td>Vote <i class='bx bxs-downvote vote'></i></td>
+                        <tr><i class='bx bxs-downvote vote'></i>
+                            <td><?php echo $row['Environmental_benefits']; ?></td>
+                            <td><a href="vote_login_form.php?Product_name=<?php echo $row['Product_name']; ?>">
+                            VOTE</a></td
                         </tr>
                     </tbody>
-                </table>                
+                </table> 
+                <?php }
+} ?>               
               </div>
             </div>
       </main>

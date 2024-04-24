@@ -1,0 +1,19 @@
+.price_category_visibility{
+    display: none;
+}
+
+.size_container input{
+    /* width: 50% ; */
+}
+
+
+@media screen and (max-width: 768px) {
+    .size_container input{
+        width: 100% ;
+    }
+    
+}
+
+.div_mobile_space{
+    /* display: flex; */
+}

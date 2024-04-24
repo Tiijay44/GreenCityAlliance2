@@ -7,7 +7,7 @@
 // **Execute insert query:**
 // **Handle insert result:**
   
-require_once('database.php');
+require_once('../../database.php');
 
 $conn = db_connect();
 
@@ -28,13 +28,14 @@ if (isset($_POST["Submit"])) {
         echo '<script>
         alert("Resident Successfully Inserted");
         setTimeout(function() {
-          window.location.href = "index.php";
-        },5000); 
+          window.location.href = "resident_login.html";
+        },2000); 
       </script>';
     } else {
         echo "Error:" . $sql . "<br>" . $conn->error;;
     }
 }
+
 
 
 

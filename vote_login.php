@@ -27,6 +27,7 @@ if (isset($_POST["Submit"])){
         $row = $result->fetch_assoc();
 
         $_SESSION['name'] = $row['FirstName'];
+        echo "Welcome back,  " . $_SESSION['name'] . "!";
         header("Location: cast_vote.php");
         exit;
     } else {

@@ -7,8 +7,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../Resident/resident.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../public/resident.css">
+    <link rel="stylesheet" href="../public/index.css">
 </head>
 <body>
         <!--Section for nav bar-->
@@ -20,10 +20,24 @@
                 <div class="home"><a href="../mainpages/index.html">Home</a></div>
                 <div class="services">Services
                     <div class="dropdown_content">
-                        <p><a href="../../view_products.php">View products</a>
+                        <p><a href="../products_services/products_menu.html">View products</a>
                     </div>
                 </div>
-                <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact Us</a></div>
+                <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
+            </div>
+
+            <div class="display_signup">
+                <!-- <p><i class='bx bx-log-in'></i> Sign in business</p> -->
+
+                <div class="sign_up">
+                    <p>Register Business</p>
+                    <div class="registeration">
+                        <p><a href="../Resident/resident.html">Resident Registration</a></p>
+                        <p><a href="../businesses/business_signup.html">Business Registration</a></p>
+                        <p><a href="../products_services/products.html">Product Registration</a></p>
+                    </div>
+                </div>
+
             </div>
             
             <div class="search">
@@ -31,7 +45,7 @@
                     <input type="text" name="product_search" id="search" placeholder="Search">
                     <button type="submit" id="search" class="button">Search</button>
                 </form>
-              </div>
+            </div>
         </div>
     </nav>
 
@@ -57,7 +71,7 @@
                     <div class="search">
                         <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
                             <input type="text" name="product_search" id="search" placeholder="Search">
-                            <button type="submit" id="search" class="button">Search</button>
+                            <button type="submit" name="Submit" id="search" class="button">Search</button>
                         </form>
                     </div>
                 </div>
@@ -76,19 +90,22 @@
                 <div class="logon">
                     <p>
                         <i class='bx bx-user user_icon' id=""></i>
-                        <span class="username" id="username">chile</span>
+                        <span class="username" id="username"></span>
                         <span><i id="user_icon" class='bx bx-chevron-down arrow_down'></i></span>
                     </p>
                     <div id="displayUserAdd" class="user_dispay">
-                            <p id="user"></p>
-                            <p id="login"><a href=""><i class='bx bx-log-out'></i> Sign out</a></p>
-                            <p><a href="../Resident/resident_login.html"><i class='bx bx-log-in'></i> Sign in</a></p>
-                            <p><a href="../businesses/business-login.html"><i class='bx bx-log-in'></i> Sign in business</a></p>
-                            <p><a href="../businesses/business_signup.html"><span class="material-symbols-outlined">add_business</span> Register Business</a></p>
+                            <p id="user" class="display"></p>
+                            <div class="display_signin">
+                                <div class="sign_in">
+                                    <p><a href="../Resident/resident_login.html">Resident Sign in</a></p>
+                                    <p><a href="../businesses/business-login.html">Business Sign in</a></p>
+                                    <p><a href="/admin_login.html">Admin Sign in</a></p>
+                                </div>
+                            </div>
                             <!-- <p id="signUp">Sign Up</p> -->
+                         </div>
                     </div>
-                </div>
-            </div>
+             </div>
 
             <!-- Section to display company message-->
             <section class="eco_friendlySection">
@@ -510,5 +527,77 @@
              
         <script src="../Resident/resident.js"></script>
         <script src="index.js"></script>
+        <script>
+            // Code to toggle navbar menu items
+document.addEventListener("DOMContentLoaded", function () {
+  const menuIcon = document.getElementById("menu_icon");
+  const itemsMobile = document.getElementById("items_mobile");
+
+  if (menuIcon && itemsMobile) {
+    menuIcon.addEventListener("click", function () {
+      if (itemsMobile.style.display === "block") {
+        itemsMobile.style.display = "none";
+      } else {
+        itemsMobile.style.display = "block";
+        itemsMobile.style.maxHeight = "300px";
+      }
+    });
+  }
+});
+
+//////////////////////////////////////////////////////////////
+
+// Code to toggle Environmental interest
+const envInterestDropdown = document.getElementById(
+  "environmental_interest_icon"
+);
+const envInterestvisibility = document.getElementById(
+  "environmental_interest_visibility"
+);
+
+if (envInterestDropdown && envInterestvisibility) {
+  envInterestDropdown.addEventListener("click", () => {
+    // checks if environmental items are visible and sets it to hidden otherwise set it to visible
+    if (envInterestvisibility.style.display === "block") {
+      envInterestvisibility.style.display = "none";
+    } else {
+      envInterestvisibility.style.display = "block";
+      document.getElementById(
+        "environmental_interest_arrowdown"
+      ).style.display = "bloc";
+      document.getElementById("environmental_interest_arrowup").style.display =
+        "none";
+    }
+  });
+}
+
+/////////////////////////////////////////////////////////////////
+
+// code for Black & White background
+const background = document.querySelector("#background");
+const footer = document.getElementById("footer");
+
+background.addEventListener("click", () => {
+  const navItems = document.querySelectorAll('navItems')
+  const menuIcon = document.getElementById('menu_icon')
+  const body = document.body;
+  if (body.classList.contains("darkMode")) {
+    body.classList.remove("darkMode");
+    body.classList.add("whiteMode");
+    footer.classList.remove("footerdarkMode");
+
+    background.innerHTML = "<i class='bx bxs-moon whiteBackground'></i>";
+  } else {
+    body.classList.remove("whiteMode");
+    body.classList.add("darkMode");
+    footer.classList.add("footerdarkMode");
+    menuIcon.style.color = "black";
+    navItems.style.color = "black";
+    background.innerHTML = "<i class='bx bxs-sun'>";
+    // document.getElementsByTagName('footer').style.display = 'none'
+  }
+});
+
+        </script>
 </body>
 </html>

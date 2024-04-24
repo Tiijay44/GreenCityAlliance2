@@ -54,9 +54,7 @@ menu>.eat-fresh span{
     justify-content: space-between;
 }
 
-.troll{
-    background-color: var(--greenAlt);
-}
+
 
 /* View Products ////////////////////////////////////// */
 .hideFoodMenu{
@@ -73,6 +71,7 @@ menu>.eat-fresh span{
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    /* max-width: 300px; */
 }
 
 .product_price .type_price input{

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <?php
+
 session_start();
 
-$_SESSION['Product_name'] = $_GET['Product_name'];
+$_SESSION['name'] = $_GET['Product_name'];
 
   ?>
 <html lang="en">

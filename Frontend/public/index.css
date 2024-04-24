@@ -32,6 +32,48 @@
 .logon .user_icon i{
     font-size:27px;
 }
+  
+  .display_signin, .display_signup {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .display_signin, .display_signup {
+    position: relative; /* Needed for proper dropdown positioning */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .display_signup .registeration {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .display_signup:hover .registeration {
+    display: block; /* Show the dropdown content on hover */
+    /* width: 500px; */
+  }
+
+  .sign_in{
+    cursor: pointer;
+  }
+
+  .sign_up>p{
+    font-weight: 600;
+  }
+
+  .sign_up>div a{
+    text-decoration: none;
+    color: var(--black);
+  }
+  
 
 .user_dispay a
 
@@ -225,11 +267,11 @@
 
 /* Feel inspired section Styling */
 .feelInspired_container{
-    border-radius: 0px 450px 0px 450px;
     /* background-color: var(--greenAlt); */
     background-image: linear-gradient(to right,  rgb(1, 105, 1), rgba(1, 105, 1, 0.85));
     color: var(--sec_white);
     text-align: center;
+    padding: 30px 0px;
 }
 
 .feelInspired_container>.inspiredSection_one{

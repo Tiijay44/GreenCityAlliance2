@@ -73,30 +73,30 @@ background.addEventListener("click", () => {
 
 // declaration
 const form = document.getElementById("myForm");
-const desktopNavForm = document.getElementById('desktop_navForm');
-const mobileNavForm = document.getElementById('mobile_navForm');
+// const desktopNavForm = document.getElementById('desktop_navForm');
+// const mobileNavForm = document.getElementById('mobile_navForm');
 
 // Prevent mobile Nav bar forms from
-mobileNavForm.addEventListener('click', ()=>{
-  event.preventDefault(); // Prevent form submission
-})
+// mobileNavForm.addEventListener('click', ()=>{
+//   event.preventDefault(); // Prevent form submission
+// })
 
-// Prevent desktop Nav bar forms from
-desktopNavForm.addEventListener('click', ()=>{
-  event.preventDefault(); // Prevent form submission
-})
+// // Prevent desktop Nav bar forms from
+// desktopNavForm.addEventListener('click', ()=>{
+//   event.preventDefault(); // Prevent form submission
+// })
 
 
 
 // Prevent form submission
-form.addEventListener("submit", function(event) {
-  event.preventDefault(); 
+// form.addEventListener("submit", function(event) {
+//   event.preventDefault(); 
   
-  // Validate form
-  if (validateForm()) {
-      form.submit(); // Submit form if validation passes
-  }
-});
+//   // Validate form
+//   if (validateForm()) {
+//       form.submit(); // Submit form if validation passes
+//   }
+// });
 
 // Code for Form validation
 function validateForm(){

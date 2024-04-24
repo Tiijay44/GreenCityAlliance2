@@ -8,7 +8,7 @@
 // **Handle authentication result:**
 
 session_start();
-require_once('admin_access_control.php');
+//require_once('admin_access_control.php');
 require_once('../database.php');
 
 $conn = db_connect();
@@ -32,5 +32,3 @@ if (isset($_POST["Submit"])){
         $msg = "Username or password error";
     }
 }
-
-

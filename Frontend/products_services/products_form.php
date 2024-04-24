@@ -7,8 +7,8 @@
 // **Execute insert query:**
 // **Handle insert result:**
 
-require_once('database.php');
-require_once('functions.php');
+require_once('../../database.php');
+require_once('../../functions.php');
 
 $conn = db_connect();
 
@@ -36,6 +36,7 @@ if (isset($_POST["Submit"])) {
 
     if ($result === true) {
       echo 'Product sucessully added';
+      header("Location: index.html");
     } else {
       echo "Error: " . $sql . "<br>" . $conn->error;
     }

@@ -12,8 +12,7 @@ margin: 200px auto;
 width: 350px;">
 <form name="login_post" method="POST" action="admin_login.php">
 <table width="100%" height="140" border="0">
-7COM1081: Software Development Exercise
-Tutorial Login and Session Management
+Admin Login
 <tr>
 <td height="41" colspan="2"><p style="color:#F00; font-weight:bold;"></p>
 Enter the Username and Password to Login</td>

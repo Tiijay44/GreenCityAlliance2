@@ -16,9 +16,9 @@
             <div class="logo">LOGO</div>
 
             <div class="items">
-                <div class="home"><a href="home">Home</a></div>
-                <div class="services"><a href="Services.html">Services</a></div>
-                <div class="aboutUs.html"><a href="aboutUs.html">About Us</a></div>
+                <div class="home"><a href="../mainpages/index.html">Home</a></div>
+                <div class="services"><a href="../products_services/products_menu.html">Services</a></div>
+                <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
             </div>
             
             <div class="search">
@@ -41,9 +41,9 @@
                 </div>
 
                 <div class="items_mobile" id="items_mobile">
-                    <div class="home"><a href="home">Home</a></div>
-                    <div class="services"><a href="Services.html">Services</a></div>
-                    <div class="aboutUs.html"><a href="aboutUs.html">About Us</a></div>
+                    <div class="home"><a href="../mainpages/index.html">Home</a></div>
+                    <div class="services"><a href="../products_services/products_menu.html">Services</a></div>
+                    <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
 
                     <div class="search">
                         <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
@@ -62,7 +62,7 @@
             <button id="background" type="button"><i class='backgroundNew bx bxs-moon' ></i></button>
         </div>
         
-        <form class="form" id="myForm" action="" method="post" onsubmit="return validateForm()">
+        <form class="form" id="myForm" action="../../company_form.php" method="POST" onsubmit="return validateForm()">
             <div class="create-account">
                 <p><b>Create Account &nbsp;</b><span>Now to Green Alliance?</span></p>
             </div>
@@ -84,7 +84,7 @@
                     <div>
                         <label for="phone_no" class="last_name phone_no">Mobile No</label>
                     </div>
-                    <input type="tel" name="phone_no" id="phone_no" placeholder="Enter Mobile"/>
+                    <input type="tel" name="phone_number" id="phone_no" placeholder="Enter Mobile"/>
                     <p id="phone_noerrorBox" class="errorBox"></p>
                 </div>
             </div>
@@ -133,14 +133,14 @@
                     <div>
                         <label for="product_service">Product/Services</label>
                     </div>
-                    <input type="text" name="product_service" id="product_service" placeholder="Product Services">
+                    <input type="text" name="product_services" id="product_service" placeholder="Product Services">
                     <p id="product_serviceerrorBox" class="errorBox"></p>
                 </div>
             </div>
 
             <!-- Section for button-->
             <div class="btn">
-                <button type="submit" id="submit" class="button">Submit</button>
+                <input type="submit" id="submit" name="Submit" class="button">Submit</input>
             </div>
         </form>
         <div class="have_account">
@@ -185,7 +185,7 @@
         </div>
       </footer>
 
-    <script src="../Resident/resident.js"></script>
+    <!-- <script src="../Resident/resident.js"></script> -->
     <script src="business_signup.js"></script>
 </body>
 </html>

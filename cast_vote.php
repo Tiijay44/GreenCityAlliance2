@@ -7,7 +7,7 @@ require_once('database.php');
 $conn = db_connect();
 ?>
 
-<h3>All Products</h3>
+<h3>Vote For This Product</h3>
 <table width="402" border="1">
     <tbody>
         <tr>
@@ -29,6 +29,7 @@ $conn = db_connect();
       
        $product_name = $_SESSION['Product_name'];
 
+       //$product_name = isset($_GET['Product_name']);
 
         if (isset($_SESSION['name'])) {
             $sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
@@ -47,9 +48,9 @@ INNER JOIN company c ON p.Company_id = c.Company_id WHERE p.Product_name = '$pro
                         <td><?php echo $row['Price']; ?></td>
                         <td><?php echo $row['Price_category']; ?></td>
                         <td><?php echo $row['Environmental_benefits']; ?></td>
-                        <td><a href="vote_login_form.php?Product_name=<?php echo $row['Product_name']; ?>">
+                        <td><a href="register_vote.php?Product_name=<?php echo $row['Product_name']; ?>">
                             YES</a></td>
-                            <td><a href="view_products.php">
+                            <td><a href="index.php">
                             NO</a></td>
                     </tr> <?php }
                     }
