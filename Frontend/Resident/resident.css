@@ -31,12 +31,20 @@ nav{
     background-color: var(--sec_gray);
 }
 
+nav .search input{
+    padding: 2px 5px;
+}
+
 /* Styling the nave items and adjusting them using flex attribute */
 .items{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 250px;
+}
+
+.items .home{
+    font-weight: 600;
 }
 
 .items a{
@@ -47,10 +55,43 @@ nav{
     font-weight: 600; /* setting the text items to bold */
 }
 
-.items a:hover{
+.items>div:hover{
     color: var(--greenAlt);
     transition-duration: 500ms;
     border-bottom: 2px solid var(--greenAlt);
+    cursor: pointer;
+}
+
+.aboutUs:hover{
+    color: var(--greenAlt);
+    border-bottom: 2px solid var(--greenAlt);
+}
+
+
+
+.services{
+  position: relative;
+  display: inline-block;
+}
+
+.services .dropdown_content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    /* margin-top: 10px; */
+}
+.services:hover .dropdown_content{
+    display: block;
+}
+
+.services a:hover{
+    transition-duration: 500ms;
+    border-bottom: 2px solid var(--greenAlt);
+    cursor: pointer;
 }
 
 .button{
@@ -93,6 +134,10 @@ nav{
     color: var(--greenAlt);
     transition-duration: 500ms;
     border-bottom: 2px solid var(--greenAlt);
+}
+
+nav .services{
+    font-weight: 600;
 }
 
 /* Code to give space between the body and footer */
@@ -147,7 +192,7 @@ main{
 }
 
 .create-account{
-    line-height: 15;
+    line-height: 9;
     /* margin-top: 200px; */
 }
 
@@ -209,7 +254,7 @@ form>#formControl{
 
 .environmental_interest span:hover{
     background-color: var(--greenAlt);
-    width:30%;
+    width:34%;
     color: var(--sec_white);
     padding: 7px 0px 7px 10px;
 }
@@ -219,9 +264,25 @@ form>#formControl{
     transition: 2s;
 }
 
+.envflex{
+    display: flex;
+}
+
 #environmental_interest_arrowup{
     display: none;
 }
+
+
+.have_account{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.have_account span>a{
+    text-decoration: none;
+    /* color: var(--greenAlt); */
+}
+
 
 
 /* Section for footer styling */
@@ -245,7 +306,6 @@ footer{
 .socialHandles i{
     color: var(--sec_white);
 }
-
 
 /* setting the maximum width to static */
 @media screen and (max-width: 2000px) {

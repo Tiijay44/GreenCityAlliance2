@@ -21,7 +21,7 @@ if (isset($_POST["Submit"])) {
     $location = $_POST["location"];
     $environmental_interests  = $_POST["environmental_interests"];
 
-    $sql = "INSERT INTO RESIDENT(firstName,lastName,email,age ,password,gender,location,environmental_interests) VALUES('$firstName','$lastName','$email','$age' ,'$password','$gender','$location','$environmental_interests')";
+    $sql = "INSERT INTO RESIDENT(FirstName, LastName, Email,AGE, Password, Gender, Location, Environmental_interests) VALUES('$firstName','$lastName','$email','$age' ,'$password','$gender','$location','$environmental_interests')";
     $result = $conn->query($sql);
 
     if ($result == true) {

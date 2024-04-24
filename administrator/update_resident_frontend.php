@@ -10,6 +10,7 @@
 // **Handle query result:**
 // **Display update form pre-populated with company data:**
 //require_once('admin_access_control.php');
+
 require_once('../database.php');
 $conn = db_connect();
 

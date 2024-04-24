@@ -3,7 +3,7 @@
 }
 
 .size_container input{
-    width: 58% ;
+    /* width: 50% ; */
 }
 
 
@@ -12,4 +12,8 @@
         width: 100% ;
     }
     
+}
+
+.div_mobile_space{
+    /* display: flex; */
 }

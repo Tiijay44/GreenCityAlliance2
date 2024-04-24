@@ -1,0 +1,127 @@
+.dashboard_container {
+    display: flex;
+    justify-content: space-between;
+    /* grid-column-gap: 100px; */
+}
+
+
+
+.side_dashboard_container{
+}
+
+.side_dashboard_container{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--sec_white);
+    background-color: var(--greenAlt);
+    width: 220px;
+}
+
+.dashboard_icon{
+    color: var(--greenAlt);
+}
+
+/* Code to style the dashboard elements to slide sideways when hovered on */
+.side_dashboard_icon{
+    color: var(--sec_white);
+}
+
+.dashboard_items > div {
+    transition: transform 0.3s ease;
+}
+
+.dashboard_items > div:hover {
+    transform: translateX(25px);
+}
+
+
+table {
+    /* flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-x: auto; */
+    width: 85%;
+}
+
+.display_company, .display_products{
+    display: none;
+}
+
+.show_resident_table {
+    display: block !important;
+}
+
+th,td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table .btn_update, table .btn_delete{
+    font-size: 27px;
+    cursor: pointer;
+}
+
+table .btn_update{
+    color: var(--greenAlt);
+}
+
+
+table .btn_delete{
+    color: var(--red);
+}
+
+
+@media screen and (max-width:1165px) {
+    .btn_update{
+        margin-bottom: 5px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .dashboard_container{
+        display: grid;
+    }
+
+    table{
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+}
+
+@media screen and (max-width:768px) {
+    /* Hide table headers on mobile */
+    thead{
+        display: none;
+    }
+
+      /* Set table rows to block elements to stack vertically on mobile */
+      tr {
+        display: block;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+    /* Set table cells to display inline-block to stack horizontally on mobile */
+    td {
+        display: inline-block;
+        width: 100%;
+        border-top: none;
+    }
+}
+  
+
+@media screen and (max-width:380px) {
+        table{
+            min-width: 380px;
+    }
+}

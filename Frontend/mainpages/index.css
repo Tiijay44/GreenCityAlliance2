@@ -1,0 +1,449 @@
+/* selected colors for the entire project by giving them variable names for identity*/
+:root{
+    --pink: rgb(240, 69, 43);
+    --pinkAlt: rgb(199, 50, 27);
+    --green: rgb(86, 141, 51);
+    --greenAlt: rgb(1, 105, 1);
+    --greentexiary: rgb(32, 150, 124);
+    --blue: rgb(30, 144, 255);
+    --black: black;
+    --sec_white: white;
+    --sec_gray: rgb(248, 248, 248);
+    --texiary_yellow: rgb(255, 238, 136);
+    --texiary_brown: rgb(204, 187, 168);
+    --border-radius: 30px 30px 2px;
+    --font-size: 1.2rem;
+}
+
+/* Code to align user options */
+.userLogin{
+    /*display: flex;
+    flex-direction: column;
+    justify-content: end;*/
+    text-align: right;
+}
+
+.logon{
+    background-color: var(--greenAlt);
+    color: var(--sec_gray);
+    padding: 4px;
+}
+
+.logon .user_icon i{
+    font-size:27px;
+}
+
+.user_dispay a
+
+
+/* removes centered attribute on form that comes from major css link 'resident.css' */
+
+/* Code to hide user options */
+.user_dispay{
+    display: none !important;
+    cursor: pointer;
+    /* visibility: hidden; */
+}
+
+.user_dispay a{
+    text-decoration: none;
+    color: var(--sec_white);
+}
+
+.logon>p>i{
+    font-size: 27px;
+}
+
+#displayUserAdd{
+    display: none;
+}
+
+.logon>p .username{
+    font-size: 1.5rem;
+}
+
+.arrow_down, .addUser{
+    font-size: 35px;
+    cursor: pointer;
+}
+
+/* Section to display company message styling */
+.eco_friendlySection{
+    margin-bottom: 150px;
+}
+
+.container-fluid{
+    margin-bottom: 35px;
+}
+
+.greencities_container{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0px;
+    max-width: 100% !important;
+}
+.greencities>h1{
+    width: 90%;
+    margin-left: 13%;
+    margin-top: 15%;
+    font-size: 3rem;
+    font-weight: 650;
+}
+.alliance{
+    width: 100%;
+}
+.alliance>p{
+    margin-left: 13%;
+    width: 70%;
+    font-size: 1.2rem;
+}
+.greencities>h1>span{
+    color: var(--greenAlt);
+}
+.imageContainer{
+    width: 100%;
+    margin-right: 5;
+    margin-top: 5%;
+}
+.imageContainer img{
+    width: 50%;
+    border-radius: 50%;
+    border: 10px solid var(--greenAlt);
+}
+
+.viewMenubtn{
+    width: 100%;
+}
+
+/* Product menu styling */
+.productMenuDisplay{
+    display: none;
+}
+
+.productmenu_container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 20px;
+}
+
+/* code to display product menu in full */
+.productmenu_container{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    overflow-y: scroll;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.575);
+    animation: Chester 0.6s;
+    /* overflow-y: scroll; */
+    /* padding-left: 3%; */
+    color: var(--sec_white);
+}
+@keyframes Chester{
+    from{
+        transform: scale(0.5);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.exitIcon{
+    position: fixed;
+    font-size: 40px;
+    top: 0;
+    z-index: 999;
+    right: 0;
+    margin-top: 25px;
+    color: var(--sec_white);
+    cursor: pointer;
+}
+
+.productmenu_container .image_Container{
+    width: 100%;
+}
+
+.productmenu_container img{
+    width: 60%;
+    transition: transform 0.3s ease;
+    border-radius: 50%;
+    border: 4px solid var(--greenAlt);
+}
+
+.productmenu_container img:hover{
+    transform: scale(1.05); /* Increase the size by 5% */
+}
+
+.product_container{
+    margin-bottom: 30px;
+}
+
+.productName, .productDescription, .productPrice, .productmenu_container{
+    text-align: center;
+}
+
+/* Our mission section styling */
+.ourMission_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 300px;
+}
+
+.ourMissionContent h3, .ourMissionContent div{
+    margin-bottom: 30px;
+}
+
+.ourMission_container .active{
+    width: 50%;
+}
+
+.ourMission_container p{
+    width: 70%;
+}
+
+.ourMission_container .ourMissionContent{
+    width: 100%;
+}
+
+.ourMission_container>.active>p{
+    font-size: 3.7rem;
+    color: var(--greenAlt);
+}
+
+.ourMission_container .active, .ourMission_container .ourMission{
+    width: 100%;
+} 
+
+.ourMissionContent h3{
+    font-weight: 650;
+    color: var(--greenAlt);
+}
+
+
+/* Feel inspired section Styling */
+.feelInspired_container{
+    border-radius: 0px 450px 0px 450px;
+    /* background-color: var(--greenAlt); */
+    background-image: linear-gradient(to right,  rgb(1, 105, 1), rgba(1, 105, 1, 0.85));
+    color: var(--sec_white);
+    text-align: center;
+}
+
+.feelInspired_container>.inspiredSection_one{
+    display: flex;
+}
+
+.feel, .leading{
+    width: 50%;
+}
+
+.feel>h1{
+    font-size: 6.2rem;
+    text-align: left;
+}
+
+.feel span{
+    color: var(--sec_white);
+}
+
+.inspiredSection_two{
+    display: flex;   
+    margin-bottom: 50px;
+}
+
+.feelInspired_container button{
+    background-color: var(--sec_white);
+    color: var(--black);
+}
+
+.feelInspired_container button:hover{
+    border: 2px solid var(--sec_white);
+    background-color: var(--greenAlt);
+    color: var(--sec_white);
+}
+
+
+/* Section styling for Contact Us */
+.contactUs{
+    margin-top: 60px;
+}
+
+.contactUs>h1{
+    text-align: center;
+    color: var(--greenAlt);
+    line-height: 5;
+}
+
+.contactUsFlex{
+    display: flex;
+    flex-direction: row;
+    grid-column-gap: 150px;
+    width: 100%;
+}
+
+.contactUsPartOne, .contactUsForm{
+    width: 100%;
+}
+
+.contactUsDetails a, .contactUspara a{
+    text-decoration: none;
+}
+
+.contactUsForm input, .contactUsForm textarea{
+    width: 100%;
+}
+
+
+/* Section for news letter */
+.newsletterFlex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.newsletterSubscribe span{
+    color: var(--greenAlt);
+}
+
+.newsletterSubscribe {
+    width: 45%;
+}
+
+.newsletterButton{
+    width: 45%;
+}
+
+.newsletterButton input {
+    border-radius: 10px;
+    font-size: 1.1rem;
+    padding: 9px;
+    border: none;
+    box-shadow: 2px 2px 2px rgb(236, 236, 236), 2px 2px 2px rgb(236, 236, 236), -2px -2px 2px rgb(236, 236, 236);
+    width: 50%;
+}
+
+
+@media screen and (max-width:2000px){
+    .greencities_container{
+        max-width: 360px;
+    }
+}
+
+@media screen and (max-width:1200px){
+    .ourMission_container>.active>p{
+        font-size: 3.1rem;
+    }
+
+    .feelInspired_container{
+        border-radius: 0px 0px 450px 450px;
+
+    }
+
+    .inspiredSection_one h1{
+        font-size: 5rem;
+    }
+}
+
+
+@media screen and (max-width: 992px) {
+    .greencities_container{
+        display: grid;
+    }
+
+    .imageContainer{
+        margin-right: 0%;
+        text-align: center;
+    }
+
+
+    .productmenu_container{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .ourMission_container{
+        display: grid;
+        grid-template-columns: auto;
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .inspiredSection_one h1{
+        font-size: 3.5rem;
+    }
+
+    .contactUsFlex{
+        display: grid;
+    }
+
+}
+
+
+@media screen and (max-width:768px){
+    .productmenu_container{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .ourMission_container{
+        font-size: 1.5rem;
+    }
+
+    .inspiredSection_one{
+        display: grid !important;
+        grid-template-columns: auto !important;
+    }
+
+    .feel, .leading{
+        width: 100%;
+    }
+
+    .inspiredSection_two{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .ourMission_container{
+        text-align: center;
+    }
+
+    .newsletterFlex{
+        display: grid;
+        text-align: center;
+    }
+
+    .newsletterSubscribe, .newsletterButton{
+        width: 100%;
+    }
+
+    .newsletterButtonDisplay>input{
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .newsletterButtonDisplay{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+
+@media screen and (max-width:576px){
+    .productmenu_container{
+        display: grid;
+        grid-template-columns: auto;
+    }
+}
+
+
+@media screen and (max-width: 365px){
+    .greencities_container{
+        min-width: 360px;
+    }
+
+    nav, main, footer, .userLogin, .footerFlex{
+        min-width: 360px;
+    }
+}

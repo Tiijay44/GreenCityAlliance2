@@ -1,0 +1,186 @@
+/* ///////// Our Product section section //////////////// */
+menu{
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 15px; */
+    margin-top: 80px;
+}
+
+.our-menu{
+    display: flex;
+    justify-content: space-around;
+    /* background-color: green; */
+    width: 170px;
+    height: 40px;
+    padding: 5px 5px 40px 5px;
+    border-radius: 30px 30px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+.our-menu p{
+    font-size: 1.3rem;
+    color: var(--greenAlt);
+}
+
+.our-menu .food-plate{
+    color: var(--greenAlt);
+    font-size: 1.5rem;
+    line-height: 1.5;
+}
+
+
+menu>.eat-fresh{
+    text-align: center;
+}
+
+menu>.eat-fresh>h1{
+    font-weight: 650;
+}
+
+menu>.eat-fresh span{
+    color: var(--greenAlt);
+}
+
+
+.viewMenu>.viewMenuFlex{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-between;
+}
+
+
+
+/* View Products ////////////////////////////////////// */
+.hideFoodMenu{
+    display: block;
+}
+
+.side_dashboard_container{
+    /* display: flex; */
+    background-color: var(--sec_gray);
+    color: var(--black);
+}
+
+.type_price{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.product_price .type_price input{
+    max-width: 70px;
+    border-radius: 12px;
+}
+
+.product_price>.type_price>.priceIcon{
+    color: var(--black);
+    font-size: 25px;
+}
+
+
+.price_btn{
+    border-radius: 50%;
+    border: none;
+    background-color: var(--greenAlt);
+    color: var(--sec_white);
+}
+
+
+.viewMenuFlex{
+    display: flex;
+    width: 85%;
+}
+
+.viewMenuContainerFlex img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid white;
+    /* box-shadow: 3px 3px 5px grey, 3px 3px 5px grey; */
+}
+
+.viewMenu .foodName h4, .viewMenu .foodArticleFlex>div{
+    /* color: grey; */
+    font-weight: 650;
+}
+
+.viewMenuContainerFlex .foodArticleFlex>.viewMenuAdd .foodPrice{
+    /* color: var(--mainColor); */
+    font-weight: 650;
+    line-height: 2;
+    color: var(--greenAlt);
+}
+
+.viewMenuAdd{
+    color: var(--greenAlt);
+}
+
+.viewMenuAdd i{
+    background-color: var(--greenAlt);
+    color: var(--sec_white);
+    border-radius: 20%;
+}
+
+
+
+img{
+    width: 300px;
+    border-radius: 150px 150px 150px 150px;
+}
+
+.vote{
+    cursor: pointer;
+    color: var(--greenAlt);
+}
+
+
+/* @media screen and (max-width:1499px){
+    .dashboard_container{
+    grid-column-gap: 50px;
+    }
+} */
+
+
+@media screen and (max-width:1120px) {
+    .dashboard_container{
+        display: grid;
+    }
+
+    .side_dashboard_container, .viewMenuFlex{
+        width: 100%;
+    }
+
+    .type_price{
+        width: 200px;
+    }
+}
+
+@media screen and (max-width:880px){
+    .viewMenuFlex{
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .viewMenu{
+        text-align: center;
+    }
+
+    .type_price_center{
+        display: flex;
+        justify-content: center;
+        /* justify-items: center; */
+    }
+}
+
+@media screen and (max-width:640px){
+    .viewMenuFlex{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}

@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+}
+
+/* selected colors for the entire project by giving them variable names for identity*/
+:root{
+    --pink: rgb(240, 69, 43);
+    --pinkAlt: rgb(199, 50, 27);
+    --green: rgb(86, 141, 51);
+    --greenAlt: rgb(1, 105, 1);
+    --greentexiary: rgb(32, 150, 124);
+    --blue: rgb(30, 144, 255);
+    --sec_white: white;
+    --sec_gray: rgb(248, 248, 248);
+    --texiary_yellow: rgb(255, 238, 136);
+    --texiary_brown: rgb(204, 187, 168);
+    --facebookColor: rgb(24, 119, 242);
+    --facebookHoverColor: rgb(52, 138, 250);
+    --twitterColor: rgb(29 161 242);
+    --twitterHoverColor: rgb(51, 177, 255);
+    --border-radius: 30px 30px 2px;
+    --font-size: 1.2rem;
+}
+
+/* form> .create-account{
+    line-height: 3;
+} */
+
+.email_password{
+    margin-top: -60px;
+}
+
+.emailAddress, .password, .button_login, .or{
+    margin-top: 25px;
+}
+
+.emailAddress input, .password input{
+    padding: 5px 10px;
+}
+
+.btn-b>.facebook_btn, .twitter_btn{
+    width: 100px;
+    padding: 5px;
+    border-radius: 30px;
+}
+
+.btn-b>.facebook_btn{
+    background-color: var(--facebookColor);
+    border: none;
+    color: white;
+    transition: 1.5s;
+}
+
+.btn-b>.facebook_btn:hover{
+    background-color: var(--facebookHoverColor);
+    transition: 500ms;
+}
+
+.btn-b>.twitter_btn{
+    background-color: var(--twitterColor);
+    border: none;
+    color: white;
+    transition: 1.5s;
+}
+
+.btn-b>.twitter_btn:hover{
+    background-color: var(--twitterHoverColor);
+    transition: 500ms;
+}
+
+.signupContainer span>a{
+    text-decoration: none;
+    
+}
+
+.signupContainer span>a{
+    color: var(--greenAlt);
+    font-weight: 600;
+}
+
+/* footer {
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+} */
