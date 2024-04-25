@@ -34,7 +34,7 @@ if (isset($_POST["Submit"])) {
         alert("Resident updated successfully!");
         setTimeout(function() {
           window.location.href = "manage_resident.php";
-        }, 1000); 
+        }, 500); 
       </script>';
     } 
     else {

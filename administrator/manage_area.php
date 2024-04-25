@@ -1,7 +1,5 @@
 <?php
-// **Require database connection functions:**
-// **Establish database connection:**
-//require_once('admin_access_control.php');
+// Manage existing companies
 //require_once('admin_access_control.php');
 require_once('../database.php');
 $conn = db_connect();
@@ -111,7 +109,7 @@ $conn = db_connect();
 
         <!-- Dashboard -->
         <div style="display: flex; justify-content: space-around; margin-top: 50px; margin-bottom: 50px;">
-            <h4><span class="material-icons-sharp dashboard_icon"> grid_view </span>Manage Products</h4>
+            <h4><span class="material-icons-sharp dashboard_icon"> grid_view </span> Manage Area</h4>
         </div>
 
             
@@ -134,48 +132,42 @@ $conn = db_connect();
             </div>
 
             <!-- Resident table -->
-            <table id="display_residents" class="display_residents dashboard_table">
+            <table id="display_residents" class="display_residents dashboard_table container-fluid" style="padding: 0px 0px 0px 10px;">
                 <thead>
                     <tr>
                     <td colspan="8">
-                        <p align="lef"> <a href="../Frontend/products_services/products.html"> Add Products</a> </p>
+                        <p align="left"> <a href="area_form.php"> Add Area</a> </p>
                     </td>
                     </tr>
                     <tr>
-                        <th width="">Product_id:</th>
-                        <th width="">Company_id:</th>
-                        <th width="">Product_name:</th>
-                        <th width="">Description:</th>
-                        <th width="">Size</th>
-                        <th width="">Environmental_benefits:</th>
-                        <th width="">Price</th>
-                        <th width="">Price_Category</th>
+                        <th width="">Area_id</th>
+                        <th width="">Area_name</th>
+                        <th width="">Council_id</th>
                         <th width="">Manage</th>
                     </tr>
                 </thead>
 
                 <?php
-        $sql_query = "SELECT * FROM Products_services";
+     
+        $sql_query = "SELECT a.Area_id, a.Area_name, c.Council_name
+        FROM Areas a
+        INNER JOIN Local_Councils c ON a.Council_id = c.Council_id";
+
         $result = $conn->query($sql_query);
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rows >= 0) {
             while ($row = $result->fetch_assoc()) { ?>
                 
                     <tr>
-                        <td><?php echo $row['Product_id']; ?>
-                        <td><?php echo $row['Company_id']; ?>
-                        <td><?php echo $row['Product_name']; ?></td>
-                        <td><?php echo $row['Description']; ?></td>
-                        <td><?php echo $row['Size']; ?></td>
-                        <td><?php echo $row['Environmental_benefits']; ?></td>
-                        <td><?php echo $row['Price']; ?></td>
-                        <td><?php echo $row['Price_category']; ?></td>
+                        <td><?php echo $row['Area_id']; ?></td>
+                        <td><?php echo $row['Area_name']; ?></td>
+                        <td><?php echo $row['Council_name']; ?></td>
 
                         <td class="table_btn">
                             <td width="50px">
-                                <a href="update_product_frontend.php?Product_id=<?php echo $row['Product_id'];?>"><i name="" class='bx bxs-edit-alt btn_update'></i></a>
+                            <td><a href="update_area_frontend.php?Area_id=<?php echo $row['Area_id']; ?>"><i name="" class='bx bxs-edit-alt btn_update'></i></a>
 
-                                <a href="delete_product.php?Product_id=<?php echo $row['Product_id'];?>"><span class="material-symbols-outlined btn_delete">delete</span></a></td>
+                            <a href="delete_area.php?Area_id=<?php echo $row['Area_id']; ?>"><span class="material-symbols-outlined btn_delete">delete</span></a></td>
                             </td>
                     </tr>
                      <?php }

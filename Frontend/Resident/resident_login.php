@@ -1,6 +1,14 @@
+<?php
+session_start();
+
+$_SESSION['name'] = isset($_GET['Product_name']);
+?>
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
+    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
@@ -8,10 +16,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../public/index.css">
-    <link rel="stylesheet" href="../public/resident.css">
     <link rel="stylesheet" href="../public/resident_login.css">
+    <link rel="stylesheet" href="../Resident/resident.css">
+    <link rel="stylesheet" href="../public/business_login.css">
+
 </head>
 <body>
+
     <!--Section for nav bar-->
     <nav class="desktop_nav"> <!--Navbar for Destok view-->
         <div class="navbar">
@@ -19,12 +30,8 @@
 
             <div class="items">
                 <div class="home"><a href="../mainpages/index.html">Home</a></div>
-                <div class="services">Services
-                    <div class="dropdown_content">
-                        <p><a href="../products_services/products_menu.html">View products</a>
-                    </div>
-                </div>
-                <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact Us</a></div>
+                <div class="services"><a href="../products_services/products_menu.html">Services</a></div>
+                <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
             </div>
             
             <div class="search">
@@ -32,7 +39,7 @@
                     <input type="text" name="product_search" id="search" placeholder="Search">
                     <button type="submit" id="search" class="button">Search</button>
                 </form>
-              </div>
+            </div>
         </div>
     </nav>
 
@@ -48,12 +55,8 @@
 
                 <div class="items_mobile" id="items_mobile">
                     <div class="home"><a href="../mainpages/index.html">Home</a></div>
-                    <div class="services">Services
-                        <div class="dropdown_content">
-                            <p><a href="../products_services/products_menu.html">View products</a>
-                        </div>
-                    </div>
-                    <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact Us</a></div>
+                    <div class="services"><a href="../products_services/products_menu.html">Services</a></div>
+                    <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
 
                     <div class="search">
                         <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
@@ -67,27 +70,27 @@
     </nav> <!--End of nav bar-->
 
     <main>
-        <!-- Background changer-->
-        <div class="container-fluid backgroundChanger">
-            <button id="background" type="button"><i class='backgroundNew bx bxs-moon' ></i></button>
-        </div>
-
-        <!-- Mini nav bar -->
-        <div class="userLogin">
+         <!-- Mini nav bar -->
+         <div class="userLogin">
             <div class="logon">
                 <p>
                     <i class='bx bx-user'></i>
                     <span><i class='bx bx-chevron-down arrow_down' id="user_icon"></i></span>
                 </p>
                 <div id="displayUserAdd" class="user_dispay">
-                    <p id="business_signup"><a href="../businesses/business_signup.html"><span class="material-symbols-outlined">add_business</span>  Register Company</a></p>
-                    <p id="business_login"><a href="../businesses/business-login.html"><span class="material-symbols-outlined">login</span> Company Login ?</a></p>
+                    <p id="business_signup"><a href="../Resident/resident.html"><span class="material-symbols-outlined">add_business</span> User Sign up ?</a></p>
+                    <p id="business_login"><a href="../Resident/resident_login.html"><span class="material-symbols-outlined">login</span> User sign in ?</a></p>
                     <p id="admin_login"><a href="../mainpages/admin/admin_login.html"> <span class="material-symbols-outlined">login</span> Admin Login</a></p>
                 </div>
             </div>
         </div>
 
-        <form class="form" action="../../resident_form.php" method="POST">
+        <!-- Background changer-->
+        <div class="container-fluid backgroundChanger">
+            <button id="background" type="button"><i class='backgroundNew bx bxs-moon' ></i></button>
+        </div>
+        
+        <form class="form" action="../../../GreenCityAlliance/vote_login.php?$_SESSION['name']" method="POST" onsubmit="return validateForm()">
             <div class="create-account">
                 <p>Sign to  &nbsp;<b>Green Alliance</b></p>
             </div>
@@ -99,12 +102,12 @@
                 </div>
     
                 <div class="password">
-                    <input type="password" name="password" id="password" placeholder="Enter Password">
+                    <input type="password" name="password" id="password" placeholder="Enter Password" placeholder="Johndoe123!">
                 </div>
             </div>
 
             <div class="btn-b">
-                <button type="submit" id="submit_btn" class="button button_login"><span><i class='bx bx-log-in'></i></span> &nbsp;Login</button>
+                <button type="submit" id="submit_btn" name="Submit" class="button button_login"><span><i class='bx bx-log-in'></i></span> &nbsp;Login</button>
             </div>
 
             <div class="or">
@@ -116,16 +119,16 @@
                 <button type="submit" id="facebook_btn" class="facebook_btn"><i class='bx bxl-facebook'></i></button>
 
                 <button type="submit" id="twitter_btn" class="twitter_btn"><i class='bx bxl-twitter'></i></button>
-            </div><br>
+            </div> <br>
 
             <div class="signupContainer">
-                <p>Don't have an account? <span><a href="resident.html"> Sign up</a></span></p>
+                <p>Don't have an account? <span><a href="business_signup.html"> Sign up</a></span></p>
             </div>
         </form>
     </main>
 
-    <!--Section for footer-->
-    <footer id="footer">
+     <!--Section for footer-->
+     <footer id="footer">
         <div class="container footerFlex">
           <div class="services_footer">
             <h5>Services</h5>
@@ -161,8 +164,13 @@
         </div>
       </footer>
 
-    <script src="resident.js"></script>
-    <script src="../mainpages/index.js"></script>
-    <script src="resident_login.js"></script>
+    <script src="../Frontend/Resident/resident.js"></script>
+    <script src="../Frontend/mainpages/index.js"></script>
+    <!-- <script src="../Frontend/admin/dashboard.js"></script> -->
+    <script>
+        //  $(".page-loader").removeClass("fade-out");
+        // $(".page-loader").addClass("loader-fade-in");
+    </script>
 </body>
 </html>
+

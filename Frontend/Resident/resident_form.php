@@ -18,7 +18,7 @@ if (isset($_POST["Submit"])) {
     $age = $_POST["age"];
     $password =  password_hash($_POST["password"], PASSWORD_BCRYPT);
     $gender = $_POST["gender"];
-    $location = $_POST["location"];
+    $location = $_POST["area_name"];
     $environmental_interests  = $_POST["environmental_interests"];
 
     $sql = "INSERT INTO RESIDENT(FirstName, LastName, Email,AGE, Password, Gender, Location, Environmental_interests) VALUES('$firstName','$lastName','$email','$age' ,'$password','$gender','$location','$environmental_interests')";

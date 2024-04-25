@@ -129,16 +129,30 @@ menu>.eat-fresh span{
 }
 
 
+.type_price_center{
+    max-width: 300px;
+}
+
+
+.type_price{
+    width: 200px;
+}
+
 
 img{
     width: 300px;
     border-radius: 150px 150px 150px 150px;
 }
 
+/* table, th, td{
+    border: 2px solid black;
+} */
+
 .vote{
     cursor: pointer;
     color: var(--greenAlt);
 }
+
 
 
 /* @media screen and (max-width:1499px){

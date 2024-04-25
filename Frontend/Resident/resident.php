@@ -1,3 +1,32 @@
+<?php
+require_once('../../../GreenCityAlliance/database.php');
+$conn = db_connect();
+
+// SQL query to fetch areas
+$sql = "SELECT Area_id, Area_name FROM Areas";
+$result = $conn->query($sql);
+
+// Check query execution
+if (!$result) {
+  die("Error: " . $conn->error);
+}
+
+// Generate options for dropdown
+$area_options = "";
+if ($result->num_rows > 0) {
+  while ($row = $result->fetch_assoc()) {
+    $area_options .= "<option value='" . $row["Area_name"] . "'>" . $row["Area_name"] . "</option>";
+  }
+} else {
+  $area_options = "<option value=''>No areas found</option>";
+}
+
+// Close connection
+$conn->close();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,6 +38,7 @@
     <link rel="stylesheet" href="../public/resident.css">
   </head>
   <body>
+    
     <!--Section for nav bar-->
     <nav class="desktop_nav"> <!--Navbar for Destok view-->
         <div class="navbar">
@@ -146,8 +176,12 @@
                 <div class="div_mobile_space">
                     <div>
                         <label for="location" class="location_l">Area</label>
+                        <select name="area_name" id="area">
+  <<?php echo $area_options; ?> 
+</select>
+
                     </div>
-                    <input type="text" name="location" id="location" placeholder="Enter your area">
+                    <!-- <input type="text" name="location" id="location" placeholder="Enter your area"> -->
                     <p id="locationerrorBox" class="errorBox"></p>
                 </div>
         

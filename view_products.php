@@ -7,10 +7,10 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../public/index.css">
-    <link rel="stylesheet" href="../public/dashboard.css">
-    <link rel="stylesheet" href="../public/resident.css">
-    <link rel="stylesheet" href="../public/products_menu.css">
+    <link rel="stylesheet" href="administrator/../Frontend/public/index.css">
+    <link rel="stylesheet" href="administrator/../Frontend/public/dashboard.css">
+    <link rel="stylesheet" href="administrator/../Frontend/public/resident.css">
+    <link rel="stylesheet" href="../GreenCityAlliance/Frontend/public/products_menu.css">
 </head>
 <body>
         <!--Section for nav bar-->
@@ -29,7 +29,7 @@
                 </div>
                 
                 <div class="search">
-                    <form id="desktop_navForm" class="btn" action="search_products.php" method="GET">
+                    <form id="desktop_navForm" class="btn" action="../GreenCityAlliance/Frontend/mainpages/search_products.php" method="GET">
                         <input type="text" name="product_search" id="search" placeholder="Search">
                         <button type="submit" id="search" class="button">Search</button>
                     </form>
@@ -192,19 +192,32 @@ $conn = db_connect();
                     </form>
                 </div>
 
+                <table >
+                    <thead>
+                        <tr>
+                            <th width="">Product Name</th>
+                            <th width="">Company Name</th>
+                            <th width="">Product Description</th>
+                            <th width="">Price</th>
+                            <th width="">Size</th>
+                            <th width="">Price Category</th>
+                            <th width="">Environmental Benefits</th>
+                        </tr>
+                    </thead>
+
+
                 <?php
         $sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
 FROM products_services p
 INNER JOIN company c ON p.Company_id = c.Company_id;";
 
+
         $result = $conn->query($sql_query);
 
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) { ?>
-
-                <table class="viewMenuFlex">
                     <tbody>
-                        <tr>
+                        <!-- <tr>
                             <td>
                                 <figure class="viewMenuFigure">
                                     <div class="viewMenuContainerFlex">
@@ -214,32 +227,25 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                                     </div>
                                 </figure>
                             </td>
-                        </tr>
+                        </tr> -->
                 
                         <tr>
-                            <td class="foodName">
-                                <article>                     
-                                    <h4><td><?php echo $row['Product_name']; ?></td></h4>
-                                    <h4><td><?php echo $row['Company_name']; ?></td></h4>
-                                </article>
-                            </td>
+                            <td><?php echo $row['Product_name']; ?></td>
+                            <td><?php echo $row['Company_name']; ?></td>
                             <td width="1200px"><?php echo $row['Description']; ?></td>
-                            <td class="product_size">Size</td>
-                        </tr>
-                
-                        <tr>
-                            <td class="foodPrice viewMenuAdd">&#163; <?php echo $row['Size']; ?></td>
+                            <!-- <td class="product_size">Size</td> -->
+                            <td class="foodPrice viewMenuAdd"><?php echo $row['Size']; ?></td>
+                            <td>&#163; <?php echo $row['Price']; ?></td>
                             <td><?php echo $row['Price_category']; ?></td>
-                        </tr>
-                        <tr><i class='bx bxs-downvote vote'></i>
                             <td><?php echo $row['Environmental_benefits']; ?></td>
-                            <td><a href="vote_login_form.php?Product_name=<?php echo $row['Product_name']; ?>">
-                            VOTE</a></td
+                            <td><a href="../GreenCityAlliance/Frontend/Resident/resident_login.php?Product_name=<?php echo $row['Product_name']; ?>">
+                            VOTE <i class='bx bxs-downvote vote'></i></a></td>
                         </tr>
                     </tbody>
-                </table> 
+                
                 <?php }
 } ?>               
+            </table> 
               </div>
             </div>
       </main>

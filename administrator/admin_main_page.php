@@ -1,7 +1,26 @@
 
 <?php 
 session_start();
+
+if (isset($_SESSION['name'])) {
+    // Session is active, user is logged in
+    echo "Welcome back,  " . $_SESSION['name'];
+    // You can access other session variables here (if set)
+  } else {
+    // Session is not active, user is not logged in
+    echo "You are not logged in.";
+    // Redirect to login page or display a login form
+  }
 ?>
+    <?php
+// **Require database connection functions:**
+// **Establish database connection:**
+//require_once('admin_access_control.php');
+//require_once('admin_access_control.php');
+require_once('../database.php');
+$conn = db_connect();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,20 +39,19 @@ session_start();
 </head>
 
 <body>
-  
      <!--Section for nav bar-->
     <nav class="desktop_nav"> <!--Navbar for Destok view-->
         <div class="navbar">
             <div class="logo">LOGO</div>
 
             <div class="items">
-                <div class="home"><a href="../index.html">Home</a></div>
+                <div class="home"><a href="../Frontend/mainpages/index.html">Home</a></div>
                 <div class="services">Services
                     <div class="dropdown_content">
-                        <p><a href="../../products_services/products_menu.html">View products</a>
+                        <p><a href="../view_products.php">View products</a>
                     </div>
                 </div>
-                <div class="aboutUs"><a href="../contactus.html">Contact Us</a></div>
+                <div class="aboutUs"><a href="../Frontend/mainpages/contactus.html">Contact</a></div>
             </div>
             
             <div class="search">
@@ -56,13 +74,13 @@ session_start();
                 </div>
 
                 <div class="items_mobile" id="items_mobile">
-                    <div class="home"><a href="../index.html">Home</a></div>
+                    <div class="home"><a href="../Frontend//mainpages/index.html">Home</a></div>
                     <div class="services">Services
                         <div class="dropdown_content">
-                            <p><a href="../../products_services/products_menu.html">View products</a>
+                            <p><a href="../view_products.php">View products</a>
                         </div>
                     </div>
-                    <div class="aboutUs_html navItems"><a href="../contactus.html">Contact Us</a></div>
+                    <div class="aboutUs_html navItems"><a href="../Frontend/mainpages/contactus.html">Contact</a></div>
 
                     <div class="search">
                         <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
@@ -87,7 +105,7 @@ session_start();
         <div class="userLogin">
             <div class="logon">
                 <p>
-                    <i class='bx bx-user'></i><span class="username" id="username"> chile</span>
+                    <i class='bx bx-user'></i><span class="username" id="username"> </span>
                     <span><i class='bx bx-chevron-down arrow_down' id="user_icon"></i></span>
                 </p>
                 <div id="displayUserAdd" class="user_dispay">
@@ -103,174 +121,82 @@ session_start();
             <button id="background" type="button"><i class='backgroundNew bx bxs-moon' ></i></button>
         </div>
 
-        <?php
-
-
-
-if (isset($_SESSION['name'])) {
-    // Session is active, user is logged in
-    echo "Welcome back,  " . $_SESSION['name'];
-    // You can access other session variables here (if set)
-  } else {
-    // Session is not active, user is not logged in
-    echo "You are not logged in.";
-    // Redirect to login page or display a login form
-  }
-
-?>
-
         <!-- Dashboard -->
         <div style="display: flex; justify-content: space-around; margin-top: 50px; margin-bottom: 50px;">
-            <h4><span class="material-icons-sharp dashboard_icon"> grid_view </span> Admin Dashboard</h4>
+            <h4><span class="material-icons-sharp dashboard_icon"> grid_view </span> Manage Residents</h4>
         </div>
 
-        <div class="container_fluid dashboard_container">
-            <div class="side_dashboard_container">   
+        <div class="side_dashboard_container">   
                 <div id="sideNav" class="side_dashboard">
                     <h4><span class="material-icons-sharp dashboard_icon side_dashboard_icon"> grid_view </span> Dashboard</h4>
                 </div>
 
                 <div class="dashboard_items">
                     <div id="manage_residents" class="manage_residents dashboard_option" data-table="display_residents"><a href="">Manage Residents</a></div>
-                    <div id="manage_company" class="manage_company dashboard_option" data-table="display_company"><a href="">Manage Company</a></div>
-                    <div id="manage_products" class="manage_products dashboard_option" data-table="display_products"><a href="">Manage Products</a></div>
-                    <div id="manage_areas" class="manage_areas dashboard_option" data-table="display_areas"><a href="">Manage Areas</a></div>
+
+                    <div id="manage_company" class="manage_company dashboard_option" data-table="display_company"><a href="manage_company.php">Manage Company</a></div>
+
+                    <div id="manage_products" class="manage_products dashboard_option" data-table="display_products"><a href="manage_product.php">Manage Products</a></div>
+
+                    <div id="manage_areas" class="manage_areas dashboard_option" data-table="display_areas"><a href="manage_area.php">Manage Areas</a></div>
                 </div>
             </div>
+
+        <div class="container_fluid dashboard_container">
+            
 
             <!-- Resident table -->
             <table id="display_residents" class="display_residents dashboard_table">
                 <thead>
                     <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Area</th>
-                        <th>Environmental Interest</th>
-                        <th>Actions</th>
+                        <td colspan="8">
+                            <p align="lef"> <a href="../Frontend/Resident/resident.html"> Add Resident </a> </p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th width="">Resident_id:</th>
+                        <th width="">FirstName:</th>
+                        <th width="">LastName:</th>
+                        <th width="">Email</th>
+                        <th width="">Age:</th>
+                        <th width="">Password</th>
+                        <th width="">Gender</th>
+                        <th width="">Location</th>
+                        <th width="">Environmental_interests</th>
+                        <th width="">Action</th>
                     </tr>
                 </thead>
+
+                <?php
+        $sql_query = "SELECT * FROM Resident";
+        $result = $conn->query($sql_query);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) { ?>
                 
                     <tr>
-                        <td>Alia</td>
-                        <td>Chiemena</td>
-                        <td>aliachiemena@gmail</td>
-                        <td>18</td>
-                        <td>Male</td>
-                        <td>Hatfield</td>
-                        <td>Any Environmental Interest</td>
+                        <td width="50px"><?php echo $row['Resident_id']; ?>
+                        </td>
+                        <td width="50px"><?php echo $row['FirstName']; ?></td>
+                        <td width="50px"><?php echo $row['LastName']; ?></td>
+                        <td width="50px"><?php echo $row['Email']; ?></td>
+                        <td width="50px"><?php echo $row['AGE']; ?></td>
+                        <td width="50px"><?php echo $row['Password']; ?></td>
+                        <td width="50px"><?php echo $row['Gender']; ?></td>
+                        <td width="50px"><?php echo $row['Location']; ?></td>
+                        <td width="50px"><?php echo $row['Environmental_interests']; ?></td>
                         <td class="table_btn">
-                            <div id="btn_update" class="btn_update"><i name="" class='bx bxs-edit-alt'></i></div>
-                            <div id="btn_delete"><span class="material-symbols-outlined btn_delete">
-                                delete
-                                </span></div>
+                            <td width="50px"><a id="btn_update" class="btn_update" href="update_resident_frontend.php?Resident_id=<?php echo $row['Resident_id']; ?>">
+                            <i name="" class='bx bxs-edit-alt'></i></a>
+                            <a id="btn_delete" href="delete_resident.php? Resident_id=<?php echo $row['Resident_id']; ?>">
+                            <span class="material-symbols-outlined btn_delete">
+                                    delete
+                                    </span></a></td>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>johnDoe@gmail</td>
-                        <td>18</td>
-                        <td>Male</td>
-                        <td>Hatfield</td>
-                        <td>Any Environmental Interest</td>
-                        <td class="table_btn">
-                            <div id="btn_update" class="btn_update"><i name="" class='bx bxs-edit-alt'></i></div>
-                            <div id="btn_delete"><span class="material-symbols-outlined btn_delete">
-                                delete
-                                </span></div>
-                        </td>
-                    </tr>
+                     <?php }
+                } ?>
             </table>
-
-            <!-- Company table -->
-            <table id="display_company" class="display_company dashboard_table">
-                <thead>
-                    <tr>
-                        <th>Company Name</th>
-                        <th>Email</th>
-                        <th>password</th>
-                        <th>Phone Number</th>
-                        <th>Product_service</th>
-                    </tr>
-                </thead>
-                
-                    <tr>
-                        <td>Tesco</td>
-                        <td>tesco@gmail</td>
-                        <td>18</td>
-                        <td>Hatfield</td>
-                        <td>Any Environmental Interest</td>
-                        <td class="table_btn">
-                            <div id="btn_update" class="btn_update"><i name="" class='bx bxs-edit-alt'></i></div>
-                            <div id="btn_delete"><span class="material-symbols-outlined btn_delete" name="">
-                                delete
-                                </span></div>
-                        </td>
-                    </tr>
-            </table>
-
-            <!-- Products table -->
-            <table id="display_products" class="display_products dashboard_table">
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Product Description</th>
-                        <th>Product Size</th>
-                        <th>Environmental benefits</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                
-                    <tr>
-                        <td>Electric Bulb</td>
-                        <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo ipsa dolor cupiditate aperiam, perferendis consequuntur, quod quam dolorem reprehenderit, voluptates numquam ea animi reiciendis quis at non quo natus repellendus?</td>
-                        <td>Medium</td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit corrupti, autem totam laboriosam explicabo temporibus quis fugit facere tempore blanditiis dicta eos nobis culpa alias in quaerat dignissimos deleniti reprehenderit?</td>
-                        <td>200</td>
-                        <td class="table_btn">
-                            <div id="btn_update" class="btn_update"><i name="" class='bx bxs-edit-alt'></i></div>
-                            <div id="btn_delete"><span class="material-symbols-outlined btn_delete">
-                                delete
-                                </span></div>
-                        </td>
-                    </tr>
-            </table>
-
-            <!-- Table for Areas -->
-            <!-- <table id="display_areas" class="display_areas dashboard_table">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Email</th>
-                        <th>Age</th>
-                        <th>Gender</th>
-                        <th>Area</th>
-                        <th>Environmental Interest</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                
-                    <tr>
-                        <td>Alia</td>
-                        <td>Chiemena</td>
-                        <td>aliachiemena@gmail</td>
-                        <td>18</td>
-                        <td>Male</td>
-                        <td>Hatfield</td>
-                        <td>Any Environmental Interest</td>
-                        <td class="table_btn">
-                            <div id="btn_update" class="btn_update"><i name="" class='bx bxs-edit-alt'></i></div>
-                            <div id="btn_delete"><span class="material-symbols-outlined btn_delete">
-                                delete
-                                </span></div>
-                        </td>
-                    </tr>
-            </table> -->
         </div>
     </main>
 
@@ -313,7 +239,7 @@ if (isset($_SESSION['name'])) {
 
     <script src="../Frontend/Resident/resident.js"></script>
     <script src="../Frontend/mainpages/index.js"></script>
-    <script src="../Frontend/admin/dashboard.js"></script>
+    <!-- <script src="../Frontend/admin/dashboard.js"></script> -->
     <script>
         //  $(".page-loader").removeClass("fade-out");
         // $(".page-loader").addClass("loader-fade-in");

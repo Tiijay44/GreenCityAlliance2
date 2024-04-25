@@ -14,23 +14,26 @@ require_once('vote_access.php');
 
 $conn = db_connect();
 
-if (isset($_POST["Submit"])){
+if (isset($_POST["Submit"])) {
 
-    $name = $_POST["email"];
-    $password = $_POST["password"];
+  $name = $_POST["email"];
+  $password = $_POST["password"];
 
-    $sql_query = "SELECT * FROM Resident WHERE
+  $sql_query = "SELECT * FROM Resident WHERE
     Email = '$name' AND Password = '$password'";
-    $result = $conn->query($sql_query);
+  $result = $conn->query($sql_query);
 
-    if ($result->num_rows > 0){
-        $row = $result->fetch_assoc();
-
-        $_SESSION['name'] = $row['FirstName'];
-        echo "Welcome back,  " . $_SESSION['name'] . "!";
-        header("Location: cast_vote.php");
-        exit;
-    } else {
-      echo "Username or password error";
-    }
+  if ($result->num_rows > 0) {
+    $row = $result->fetch_assoc();
+    $_SESSION['name'] = $row['FirstName'];
+    header("Location: cast_vote.php");
+    exit;
+  } else {
+    echo '<script>
+      alert("Username or password error!");
+      setTimeout(function() {
+        window.location.href = "../GreenCityAlliance/Frontend/Resident/resident_login.php";
+      },500); 
+    </script>';
+  }
 }

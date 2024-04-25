@@ -32,13 +32,13 @@ $conn = db_connect();
             <div class="logo">LOGO</div>
 
             <div class="items">
-                <div class="home"><a href="../index.html">Home</a></div>
+                <div class="home"><a href="../Frontend/mainpages/index.html">Home</a></div>
                 <div class="services">Services
                     <div class="dropdown_content">
-                        <p><a href="../../products_services/products_menu.html">View products</a>
+                        <p><a href="../view_products.php">View products</a>
                     </div>
                 </div>
-                <div class="aboutUs"><a href="../contactus.html">Contact Us</a></div>
+                <div class="aboutUs"><a href="../Frontend/mainpages/contactus.html">Contact</a></div>
             </div>
             
             <div class="search">
@@ -61,13 +61,13 @@ $conn = db_connect();
                 </div>
 
                 <div class="items_mobile" id="items_mobile">
-                    <div class="home"><a href="../index.html">Home</a></div>
+                    <div class="home"><a href="../Frontend//mainpages/index.html">Home</a></div>
                     <div class="services">Services
                         <div class="dropdown_content">
-                            <p><a href="../../products_services/products_menu.html">View products</a>
+                            <p><a href="../view_products.php">View products</a>
                         </div>
                     </div>
-                    <div class="aboutUs_html navItems"><a href="../contactus.html">Contact Us</a></div>
+                    <div class="aboutUs_html navItems"><a href="../Frontend/mainpages/contactus.html">Contact</a></div>
 
                     <div class="search">
                         <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
@@ -119,13 +119,13 @@ $conn = db_connect();
                 </div>
 
                 <div class="dashboard_items">
-                    <div id="manage_residents" class="manage_residents dashboard_option" data-table="display_residents"><a href="">Manage Residents</a></div>
+                    <div id="manage_residents" class="manage_residents dashboard_option" data-table="display_residents"><a href="#">Manage Residents</a></div>
 
                     <div id="manage_company" class="manage_company dashboard_option" data-table="display_company"><a href="manage_company.php">Manage Company</a></div>
 
                     <div id="manage_products" class="manage_products dashboard_option" data-table="display_products"><a href="manage_product.php">Manage Products</a></div>
 
-                    <div id="manage_areas" class="manage_areas dashboard_option" data-table="display_areas"><a href=""></a>Manage Areas</div>
+                    <div id="manage_areas" class="manage_areas dashboard_option" data-table="display_areas"><a href="manage_area.php">Manage Areas</a></div>
                 </div>
             </div>
 

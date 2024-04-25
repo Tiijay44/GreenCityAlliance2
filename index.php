@@ -20,7 +20,7 @@
                 <div class="home"><a href="../mainpages/index.html">Home</a></div>
                 <div class="services">Services
                     <div class="dropdown_content">
-                        <p><a href="../products_services/products_menu.html">All products</a>
+                        <p><a href="/view_products.php">All products</a>
                     </div>
                 </div>
                 <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
@@ -63,7 +63,7 @@
                     <div class="home"><a href="../mainpages/index.html">Home</a></div>
                     <div class="services">Services
                         <div class="dropdown_content">
-                            <p><a href="../products_services/products_menu.html">View products</a>
+                            <p><a href="view_products.php">View products</a>
                         </div>
                     </div>
                     <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact Us</a></div>
