@@ -14,7 +14,7 @@ require_once('../database.php');
 
 $conn = db_connect();
 
-$company_id = isset($_GET['Company_id']);
+$company_id = $_GET['Company_id'];
 
 if (isset($_POST["Submit"])) {
 

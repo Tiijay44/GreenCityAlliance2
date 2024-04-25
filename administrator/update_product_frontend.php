@@ -13,7 +13,7 @@
 require_once('../database.php');
 $conn = db_connect();
 
-$product_id = isset($_GET['Product_id']);
+$product_id = $_GET['Product_id'];
 
 if (isset($_GET['Product_id'])) {
 
@@ -47,7 +47,7 @@ if (isset($_GET['Product_id'])) {
         </form>
         <?php
     } else {
-        echo "Company not found!";
+        echo "Product not found!";
     }
 } else {
     echo "Missing company ID!";

@@ -14,7 +14,7 @@
 require_once('../database.php');
 $conn = db_connect();
 
-$resident_id = isset($_GET['Resident_id']);
+$resident_id = $_GET['Resident_id'];
 
 if (isset($_GET['Resident_id'])) {
 

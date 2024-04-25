@@ -7,6 +7,7 @@
 require_once('../database.php');
 
 $conn = db_connect();
+session_start();
 ?>
 
 <head>
@@ -157,7 +158,7 @@ $conn = db_connect();
         $sql_query = "SELECT * FROM Company";
         $result = $conn->query($sql_query);
 
-        if ($result->num_rows > 0) {
+        if ($result->num_rows >= 0) {
             while ($row = $result->fetch_assoc()) { ?>
                 
                     <tr>

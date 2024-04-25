@@ -13,7 +13,7 @@ require_once('../database.php');
 $conn = db_connect();
 
 
-$product_id = isset($_GET['Product_id']);
+$product_id = $_GET['Product_id'];
 
 if (isset($_POST["Submit"])) {
     $product_name =  $_POST["product_name"];
