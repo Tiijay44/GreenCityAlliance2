@@ -30,8 +30,8 @@ if (isset($_POST["Submit"])) {
         echo '<script>
         alert("Product updated successfully!");
         setTimeout(function() {
-          window.location.href = "index.php";
-        }, 5000); 
+          window.location.href = "manage_product.php";
+        }, 1000); 
       </script>';
     } else {
         echo "Error updating data: " . $conn->error;

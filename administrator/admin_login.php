@@ -29,6 +29,12 @@ if (isset($_POST["Submit"])){
         header("Location: admin_main_page.php");
         exit;
     } else {
-        $msg = "Username or password error";
+        echo '<script>
+        alert("Wrong username or password");
+        setTimeout(function() {
+          window.location.href = "../Frontend/admin/admin_login.html";
+        }, 1000); 
+      </script>';
+       
     }
 }

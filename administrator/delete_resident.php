@@ -19,8 +19,8 @@ if ($result == true) {
     echo '<script>
     alert("Result successfully deleted");
     setTimeout(function() {
-      window.location.href = "index.php";
-    },2000); 
+      window.location.href = "manage_resident.php";
+    },1000); 
   </script>';
 } else {
     echo "Error:" . $delete_query . "<br>" . $conn->error;;

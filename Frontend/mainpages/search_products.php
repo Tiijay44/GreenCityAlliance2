@@ -68,31 +68,28 @@
   </nav> <!--End of nav bar-->
 
 
-  <?php
-require_once('../../database.php');
-$conn = db_connect();
+  <!-- <?php
+//require_once('../../database.php');
+//$conn = db_connect();
 
-$searchTerm = $_GET['product_search'];
+//$searchTerm = $_GET['product_search'];
 
 // Escape the search term to prevent SQL injection vulnerabilities
-$searchTerm = mysqli_real_escape_string($conn, $searchTerm);
+//$searchTerm = mysqli_real_escape_string($conn, $searchTerm);
 
 // Build the SQL query
 //$sql = "SELECT Product_name, Description, Price FROM products_services WHERE Product_name LIKE '%$searchTerm%'";
-$sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
-FROM products_services p
-INNER JOIN company c ON p.Company_id = c.Company_id WHERE Product_name LIKE '%$searchTerm%'";
+//$sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
+//FROM products_services p
+//INNER JOIN company c ON p.Company_id = c.Company_id WHERE Product_name LIKE '%$searchTerm%'";
 
 
 // Execute the query
-$result = $conn->query($sql_query);
+//$result = $conn->query($sql_query);
 
 // Display search results (replace with your HTML structure)
-$result = $conn->query($sql_query);
-
-
-
-?>
+//$result = $conn->query($sql_query);
+//?> -->
 
   <main>
        <!-- Background changer-->
@@ -192,8 +189,9 @@ $result = $conn->query($sql_query);
             $sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
             FROM products_services p
             INNER JOIN company c ON p.Company_id = c.Company_id WHERE Product_name LIKE '%$searchTerm%'";
-
-
+// Execute the query
+$result = $conn->query($sql_query);
+if ($searchTerm == true){
             if ($result->num_rows > 0) {
               echo "<table class='viewMenuFlex' style='overflow-x:auto'>";  // Open the table tag
               echo "<tr class='troll'>";     // Open table header row
@@ -220,6 +218,9 @@ $result = $conn->query($sql_query);
             } else {
               echo "<marquee behavior='scroll' scrollamount='9' direction='right' onmouseover='this.stop();' onmouseout='this.start();'><h4 style='text-align:center'>No products found matching your search</h4></marquee>";
             }
+          }else{
+            echo "<marquee behavior='scroll' scrollamount='9' direction='right' onmouseover='this.stop();' onmouseout='this.start();'><h4 style='text-align:center'>Enter a product to search</h4></marquee>";
+          }
             ?>
 
           <!-- <table class="viewMenuFlex">

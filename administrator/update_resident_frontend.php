@@ -24,7 +24,7 @@ if (isset($_GET['Resident_id'])) {
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
         ?>
-        <h2>Update Company Data</h2>
+        <h2>Update Resident Data</h2>
         <form action="update_resident_backend.php?Resident_id=<?php echo $row['Resident_id']; ?>" method="POST">
             <input type="hidden" name="resident_id" value="<?php echo $row['Resident_id']; ?>">
             <label for="firstname">First Name:</label>

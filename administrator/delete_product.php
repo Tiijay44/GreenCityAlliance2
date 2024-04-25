@@ -13,14 +13,14 @@ $conn = db_connect();
 
 $product_id = $_GET['Product_id'];
 
-$delete_query = "delete from Product_services where Product_id = $product_id";
+$delete_query = "delete from Products_services where Product_id = $product_id";
 $result = $conn->query($delete_query);
 if ($result == true) {
     echo '<script>
     alert("Result successfully deleted");
     setTimeout(function() {
-      window.location.href = "index.php";
-    },2000); 
+      window.location.href = "manage_product.php";
+    },1000); 
   </script>';
 } else {
     echo "Error:" . $delete_query . "<br>" . $conn->error;;
