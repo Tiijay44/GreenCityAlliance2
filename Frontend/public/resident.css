@@ -156,11 +156,18 @@ main{
 
 /* background color */
 .backgroundChanger{
-    position: fixed;
+    /* position: fixed; */
+    /* text-align: end; */
+    /* padding-top: 10px; */
+    /* bottom: 0px; */
+    cursor: pointer;
+    position: sticky;
     text-align: end;
     padding-top: 10px;
-    bottom: 0px;
+    left: 95%;
+    top: 70%;
     cursor: pointer;
+    width: 30px;
 }
 
 

@@ -18,28 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
 //////////////////////////////////////////////////////////////
 
 // Code to toggle Environmental interest
-const envInterestDropdown = document.getElementById(
-  "environmental_interest_icon"
-);
-const envInterestvisibility = document.getElementById(
-  "environmental_interest_visibility"
-);
+document.getElementById("environmental_interest_icon").addEventListener("click", function() {
+  const visibilityElement = document.getElementById("environmental_interest_visibility");
+  if (visibilityElement.style.display === "block") {
+    visibilityElement.style.display = "none";
+  } else {
+    visibilityElement.style.display = "block";
+  }
+});
 
-if (envInterestDropdown && envInterestvisibility) {
-  envInterestDropdown.addEventListener("click", () => {
-    // checks if environmental items are visible and sets it to hidden otherwise set it to visible
-    if (envInterestvisibility.style.display === "block") {
-      envInterestvisibility.style.display = "none";
-    } else {
-      envInterestvisibility.style.display = "block";
-      document.getElementById(
-        "environmental_interest_arrowdown"
-      ).style.display = "bloc";
-      document.getElementById("environmental_interest_arrowup").style.display =
-        "none";
-    }
-  });
-}
 
 /////////////////////////////////////////////////////////////////
 
@@ -89,14 +76,14 @@ const form = document.getElementById("myForm");
 
 
 // Prevent form submission
-// form.addEventListener("submit", function(event) {
-//   event.preventDefault(); 
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); 
   
-//   // Validate form
-//   if (validateForm()) {
-//       form.submit(); // Submit form if validation passes
-//   }
-// });
+  // Validate form
+  if (validateForm()) {
+      form.submit(); // Submit form if validation passes
+  }
+});
 
 // Code for Form validation
 function validateForm(){

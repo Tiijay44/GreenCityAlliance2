@@ -1,8 +1,5 @@
-
 <?php
-require_once('database.php');
 require_once('nav.php');
-$conn = db_connect();
 ?>
 
 <!DOCTYPE html>
@@ -20,34 +17,9 @@ $conn = db_connect();
     <link rel="stylesheet" href="Frontend/public/products_menu.css">
 </head>
 <body>
-     
-
-
-
-
-<!-- <h3>All Products</h3>
-<table width="402" border="1">
-    <tbody>
-        <tr>
-            <td colspan="8">
-            </td>
-        </tr>
-        <tr>
-            <td width="18">Product_name:</td>
-            <td width="18">Company_name:</td>
-            <td width="380">Description:</td>
-            <td width="150">Size: </td>
-            <td width="109">Price:</td>
-            <td width="91">Price Category: </td>
-            <td width="91">Environmental_Benefits: </td>
-            <td width="91">Manage: </td>
-        </tr> -->
-
     
-<!-- 
-
         <main>
-              Background changer-->
+             <!-- Background changer-->
              <div class="container-fluid backgroundChanger">
                 <button id="background" type="button"><i class='backgroundNew bx bxs-moon' ></i></button>
             </div>
@@ -61,9 +33,9 @@ $conn = db_connect();
                         <span><i id="user_icon" class='bx bx-chevron-down arrow_down'></i></span>
                     </p>
                     <div id="displayUserAdd" class="user_dispay">
-                            <!-- <p id="user"></p>
+                            <p id="user"></p>
                             <p id="login"> <i class='bx bx-log-out'></i> Sign out</p>
-                             <p id="signUp">Sign Up</p> -->
+                            <!-- <p id="signUp">Sign Up</p> -->
                     </div>
                 </div>
             </div>
@@ -71,7 +43,7 @@ $conn = db_connect();
              <!-- //////////// Menu Header ///////////// -->
             <menu>
                 <div class="menu">
-                <div class="our-menu"> 
+                <div class="our-menu">
                     <div>
                         <span class="material-symbols-outlined food-plate">
                             category
@@ -87,7 +59,7 @@ $conn = db_connect();
                 <div class="eat-fresh">
                 <h1><span>Green</span> Urban Living</h1>
                 </div>
-            </menu> 
+            </menu>
     
   
           <!-- View Products //////////////////////////////////////// -->
@@ -98,7 +70,7 @@ $conn = db_connect();
                         <h4>Price</h4>
                     </div>
 
-                    <form id="form" action="products_form.php" method="get" onsubmit="return validateForm()" class="product_price">
+                    <form action="" method="get" onsubmit="return validateForm()" class="product_price">
                         <div class="under_seventy">
                             <input type="checkbox" name="under_seventy" id="under_seventy">
                             <label for="under_seventy">Under &#163;70 </label>
@@ -130,32 +102,9 @@ $conn = db_connect();
                     </form>
                 </div>
 
-                <table >
-                    <thead>
-                        <tr>
-                            <th width="">Product Name</th>
-                            <th width="">Company Name</th>
-                            <th width="">Product Description</th>
-                            <th width="">Price</th>
-                            <th width="">Size</th>
-                            <th width="">Price Category</th>
-                            <th width="">Environmental Benefits</th>
-                        </tr>
-                    </thead>
-
-
-                <?php
-        $sql_query = "SELECT p.Product_name, c.Company_name, p.Description, p.Size, p.Price, p.Price_category, p.Environmental_benefits
-FROM products_services p
-INNER JOIN company c ON p.Company_id = c.Company_id;";
-
-
-        $result = $conn->query($sql_query);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) { ?>
+                <table class="viewMenuFlex">
                     <tbody>
-                        <!-- <tr>
+                        <tr>
                             <td>
                                 <figure class="viewMenuFigure">
                                     <div class="viewMenuContainerFlex">
@@ -165,25 +114,28 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
                                     </div>
                                 </figure>
                             </td>
-                        </tr> -->
+                        </tr>
                 
                         <tr>
-                            <td><?php echo $row['Product_name']; ?></td>
-                            <td><?php echo $row['Company_name']; ?></td>
-                            <td width="1200px"><?php echo $row['Description']; ?></td>
-                            <!-- <td class="product_size">Size</td> -->
-                            <td class="foodPrice viewMenuAdd"><?php echo $row['Size']; ?></td>
-                            <td>&#163; <?php echo $row['Price']; ?></td>
-                            <td><?php echo $row['Price_category']; ?></td>
-                            <td><?php echo $row['Environmental_benefits']; ?></td>
-                            <td><a style="text-decoration: none;" href="resident_login.php?Product_name=<?php echo $row['Product_name']; ?>">
-                            VOTE <i class='bx bxs-downvote vote'></i></a></td>
+                            <td class="foodName">
+                                <article>                     
+                                    <h4>Product Name</h4>
+                                    <h4>Company Name</h4>
+                                </article>
+                            </td>
+                            <td width="1200px" class="foodArticle product_description foodArticleFlex"> Product Description Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi, alias quibusdam accusamus veritatis optio cupiditate suscipit esse dolores fugit corrupti itaque nulla nobis at voluptas excepturi doloribus iusto rem.</td>
+                            <td class="product_size">Size</td>
+                        </tr>
+                
+                        <tr>
+                            <td class="foodPrice viewMenuAdd">&#163; Price</td>
+                            <td>Environmental Benefits</td>
+                        </tr>
+                        <tr>
+                            <td>Vote <i class='bx bxs-downvote vote'></i></td>
                         </tr>
                     </tbody>
-                
-                <?php }
-} ?>               
-            </table> 
+                </table>                
               </div>
             </div>
       </main>
@@ -192,27 +144,15 @@ INNER JOIN company c ON p.Company_id = c.Company_id;";
       <?php
 require_once('footer.php');
 ?>
-    <script src="Frontend/Resident/resident.js"></script>
-    <script src="index.js"></script>
+
+    <script src="../Resident/resident.js"></script>
+    <script src="../mainpages/index.js"></script>
 
     <script>
-        // function calculatePriceCategory(price)
-        // {
-        //     priceCategory = null;
-
-        //     if (price >= 0 && price <= 50) {
-        //         priceCategory = 'Affordable';
-        //     } else if (price > 100 && price <= 200)
-        //         priceCategory = 'Moderate';
-        //     else {
-        //         priceCategory = 'Premium';
-        //     }
-        //     return priceCategory;
-        // }
-
-            document.getElementById('form').addEventListener('click', ()=>{
-                event.preventDefault();
-            })
+        // const min_price = document.getElementById('min_price').value;
+        // const max_price = document.getElementById('min_price').value;
+        // const errorMessage = document.getElementById('priceerrorBox')
+        // const nonNumericPattern = /[^0-9]/g;
 
 
         function validateForm() {

@@ -32,7 +32,7 @@ if (isset($_POST["Submit"])) {
     echo '<script>
       alert("Username or password error!");
       setTimeout(function() {
-        window.location.href = "../GreenCityAlliance/Frontend/Resident/resident_login.php";
+        window.location.href = "resident_login.php";
       },500); 
     </script>';
   }

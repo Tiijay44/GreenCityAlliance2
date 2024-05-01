@@ -6,19 +6,49 @@
     <title>Resident</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../public/resident.css">
+    <link rel="stylesheet" href="../Frontend/public/resident.css">
   </head>
   <body>
+    <!-- Nav bar fof mobile view-->
+    <nav class="mobile_nav">
+        <div class="navbar_mobile">
+            <div class="logo">LOGO</div>
+
+            <div>
+                <div id="items_menu">
+                    <i class='bx bx-menu' id="menu_icon" style="font-size: 23px;"></i>
+                </div>
+
+                <div class="items_mobile" id="items_mobile">
+                    <div class="home"><a href="../mainpages/index.html">Home</a></div>
+                    <div class="services">Services
+                        <div class="dropdown_content">
+                            <p><a href="../products_services/products_menu.html">View products</a>
+                        </div>
+                    </div>
+                    <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact Us</a></div>
+
+                    <div class="search">
+                        <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
+                            <input type="text" name="product_search" id="search" placeholder="Search">
+                            <button type="submit" id="search" class="button">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> <!--End of nav bar-->
+
     <!--Section for nav bar-->
     <nav class="desktop_nav"> <!--Navbar for Destok view-->
         <div class="navbar">
             <div class="logo">LOGO</div>
 
             <div class="items">
-                <div class="home"><a href="../mainpages/index.html">Home</a></div>
+                <div class="home"><a href="../Frontend/mainpages/index.html">Home</a></div>
                 <div class="services">Services
                     <div class="dropdown_content">
-                        <p><a href="../products_services/products_menu.html">View products</a>
+                        <p><a id="view_products" href="../../GreenCityAlliance/view_products.php">View products</a>
                     </div>
                 </div>
                 <div class="aboutUs"><a href="../mainpages/contactus.html">Contact Us</a></div>
@@ -73,7 +103,7 @@
                     <input type="text" name="area" id="area">
                 </div>
             </div>
-        </form> >     
+        </form>   
     </main>
 
     <!--Section for footer-->
@@ -115,5 +145,11 @@
 
 
     <script src="resident.js"></script>
+    <script>
+     const view_products =  document.getElementById('view_products');
+     view_products.addEventListener('click', e=>{
+        window.location.href = '../../GreenCityAlliance/view_products.php';
+     })
+    </script>
   </body>
 </html>

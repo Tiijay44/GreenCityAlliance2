@@ -1,3 +1,6 @@
+<?php
+require_once('nav.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,77 +10,173 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="../public/resident.css">
-    <link rel="stylesheet" href="../public/index.css">
+    <link rel="stylesheet" href="Frontend/public/navbar.css">
+    <link rel="stylesheet" href="Frontend/public/resident.css">
+    <link rel="stylesheet" href="Frontend/public/index.css">
+    <style>
+  /* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Main navigation styles */
+  body {
+    font-family: sans-serif;
+  }
+
+  /* Stretching the navbar contents */
+  .navba{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 0px;
+  }
+
+
+  /* Logo styling */
+  .log {
+    font-size: 25px; /* Adjust logo font size */
+    font-weight: bold;
+    line-height: 2;
+    /* width: 25%; */
+  }
+  
+  .nav-items {
+    list-style: none; /* Remove default bullet points */
+    display: flex; /* Arrange links horizontally */
+    justify-content: space-between;
+    line-height: 2.5;
+    width: 350px;
+  }
+
+  
+  .dropdown-content>Div{
+    line-height: 1.5;
+  }
+
+  .services{
+    font-weight: 600;
+  }
+  
+  .nav-items a {
+    text-decoration: none; /* Remove underline */
+    color: black; /* Link color */
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  .nav-items a:hover, .services:hover{
+    border-bottom: 2px solid rgb(2, 116, 2);
+    transition: 300ms;
+  }
+  
+  .nav-items a:hover { /* Hover effect for links */
+    color: #333; /* Change link color on hover */
+    z-index: 999;
+  }
+  
+  /* Dropdown styles */
+  .dropdown {
+    position: relative; /* Needed for proper dropdown positioning */
+  }
+  
+  .dropdown-content {
+    display: none; /* Initially hide dropdown content */
+    position: absolute; /* Position the dropdown content absolutely */
+    background-color: #f2f2f2; /* Dropdown background color */
+    min-width: 245px; /* Set minimum width for the dropdown */
+    padding: 15px 15px;
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown content on hover */
+    z-index: 999;
+  }
+  
+  .dropdown-content div {
+    margin-bottom: 5px; /* Spacing between dropdown items */
+  }
+  
+  
+  /* Search bar styles */
+  .search-bar {
+    display: flex;
+  }
+  
+  
+  .search-bar input[type="text"] {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px; /* Rounded corners */
+    flex: 1; /* Take up remaining space */
+  }
+
+
+  footer{
+    background-color: re;
+  }
+  
+  
+/* Responsive adjustments for mobile devices */
+  @media screen and (max-width: 890px){
+    /* .desktop_nav{
+        display: none;
+    } */
+
+    .log{
+        width: 150px;
+    }
+
+    .desktop_nav .nav-items{
+        width: 320px;
+    }
+
+    .desktop_nav .search-bar{
+        width: 250px;
+    }
+
+    /* .nav-items{
+        display: grid;
+        line-height: 1.8;
+        text-align: left;
+    } */
+
+    /* .navitems_align_left{
+        display: grid;
+        justify-content: end;
+    } */
+
+    .search-bar input{
+        margin-bottom: 10px;
+    }
+
+  }
+  
+
+  .backgroundChanger{
+    position: sticky;
+    text-align: end;
+    padding-top: 10px;
+    left: 95%;
+    top: 70%;
+    cursor: pointer;
+    width: 30px;
+}  
+
+.background{
+    border-radius: 50%;
+    color: var(--sec_gray);
+}
+  
+</style>
 </head>
 <body>
-        <!--Section for nav bar-->
-    <nav class="desktop_nav"> <!--Navbar for Destok view-->
-        <div class="navbar">
-            <div class="logo">LOGO</div>
-
-            <div class="items">
-                <div class="home"><a href="../mainpages/index.html">Home</a></div>
-                <div class="services">Services
-                    <div class="dropdown_content">
-                        <p><a href="/view_products.php">All products</a>
-                    </div>
-                </div>
-                <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact</a></div>
-
-                <div class="display_signup">
-                    <!-- <p><i class='bx bx-log-in'></i> Sign in business</p> -->
-    
-                    <div class="sign_up">
-                        <p>Registration</p>
-                        <div class="registeration">
-                            <p><a href="../Resident/resident.html">Resident Registration</a></p>
-                            <p><a href="../businesses/business_signup.html">Business Registration</a></p>
-                            <p><a href="../products_services/products.html">Product Registration</a></p>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-            
-            <div class="search">
-                <form id="desktop_navForm" class="btn" action="search_products.php" method="GET">
-                    <input type="text" name="product_search" id="search" placeholder="Products-Services">
-                    <button type="submit" id="search" class="button">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Nav bar fof mobile view-->
-    <nav class="mobile_nav">
-        <div class="navbar_mobile">
-            <div class="logo">LOGO</div>
-
-            <div>
-                <div id="items_menu">
-                    <i class='bx bx-menu' id="menu_icon" style="font-size: 23px;"></i>
-                </div>
-
-                <div class="items_mobile" id="items_mobile">
-                    <div class="home"><a href="../mainpages/index.html">Home</a></div>
-                    <div class="services">Services
-                        <div class="dropdown_content">
-                            <p><a href="view_products.php">View products</a>
-                        </div>
-                    </div>
-                    <div class="aboutUs.html"><a href="../mainpages/contactus.html">Contact Us</a></div>
-
-                    <div class="search">
-                        <form id="mobile_navForm" class="btn" action="search_products.php" method="GET">
-                            <input type="text" name="product_search" id="search" placeholder="Products-Services">
-                            <button type="submit" name="Submit" id="search" class="button">Search</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav> <!--End of nav bar-->
+    <!-- Section for nav bar-->
+   
 
         <main>
              <!-- Background changer-->
@@ -97,9 +196,9 @@
                             <p id="user" class="display"></p>
                             <div class="display_signin">
                                 <div class="sign_in">
-                                    <p><a href="../Resident/resident_login.html">Resident Sign in</a></p>
-                                    <p><a href="../businesses/business-login.html">Business Sign in</a></p>
-                                    <p><a href="../admin/admin_login.html">Admin Sign in</a></p>
+                                    <p><a href="resident_login.php">Resident Sign in</a></p>
+                                    <p><a href="business-login.php">Business Sign in</a></p>
+                                    <p><a href="admin_login_frontend.php">Admin Sign in</a></p>
                                 </div>
                             </div>
                             <!-- <p id="signUp">Sign Up</p> -->
@@ -485,7 +584,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>
         </main>
 
         <!--Section for footer-->
@@ -524,28 +623,31 @@
               </div>
             </div>
           </footer>
-             
-        <script src="../Resident/resident.js"></script>
-        <script src="index.js"></script>
+        
+        
+        <script src="navbar/navbar.js"></script>
+        <script src="Frontend/Resident/resident.js"></script>
+        <script src="/administrator/FrontendFiles/navbar.js"></script>
+        <script src="Frontend/mainpages/index.js"></script>
         <script>
-            // Code to toggle navbar menu items
-document.addEventListener("DOMContentLoaded", function () {
-  const menuIcon = document.getElementById("menu_icon");
-  const itemsMobile = document.getElementById("items_mobile");
+            //  <!-- Code to toggle navbar menu items -->
+  document.addEventListener("DOMContentLoaded", function () {
+   const menuIcon = document.getElementById("menu_icon");
+   const itemsMobile = document.getElementById("items_mobile");
 
-  if (menuIcon && itemsMobile) {
-    menuIcon.addEventListener("click", function () {
+   if (menuIcon && itemsMobile) {
+     menuIcon.addEventListener("click", function () {
       if (itemsMobile.style.display === "block") {
         itemsMobile.style.display = "none";
       } else {
-        itemsMobile.style.display = "block";
-        itemsMobile.style.maxHeight = "300px";
-      }
-    });
-  }
+         itemsMobile.style.display = "block";
+         itemsMobile.style.maxHeight = "300px";
+       }
+     });
+   }
 });
 
-//////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////
 
 // Code to toggle Environmental interest
 const envInterestDropdown = document.getElementById(
@@ -557,7 +659,7 @@ const envInterestvisibility = document.getElementById(
 
 if (envInterestDropdown && envInterestvisibility) {
   envInterestDropdown.addEventListener("click", () => {
-    // checks if environmental items are visible and sets it to hidden otherwise set it to visible
+    //  checks if environmental items are visible and sets it to hidden otherwise set it to visible
     if (envInterestvisibility.style.display === "block") {
       envInterestvisibility.style.display = "none";
     } else {
@@ -568,36 +670,37 @@ if (envInterestDropdown && envInterestvisibility) {
       document.getElementById("environmental_interest_arrowup").style.display =
         "none";
     }
+
   });
 }
 
-/////////////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////////////
 
-// code for Black & White background
-const background = document.querySelector("#background");
-const footer = document.getElementById("footer");
+//  code for Black & White background
+ const background = document.querySelector("#background");
+ const footer = document.getElementById("footer");
 
-background.addEventListener("click", () => {
-  const navItems = document.querySelectorAll('navItems')
-  const menuIcon = document.getElementById('menu_icon')
-  const body = document.body;
-  if (body.classList.contains("darkMode")) {
-    body.classList.remove("darkMode");
+ background.addEventListener("click", () => {
+   const navItems = document.querySelectorAll('navItems')
+   const menuIcon = document.getElementById('menu_icon')
+   const body = document.body;
+   if (body.classList.contains("darkMode")) {
+     body.classList.remove("darkMode");
     body.classList.add("whiteMode");
-    footer.classList.remove("footerdarkMode");
+     footer.classList.remove("footerdarkMode");
 
-    background.innerHTML = "<i class='bx bxs-moon whiteBackground'></i>";
-  } else {
-    body.classList.remove("whiteMode");
+   background.innerHTML = "<i class='bx bxs-moon whiteBackground'></i>";
+   } else {
+     body.classList.remove("whiteMode");
     body.classList.add("darkMode");
-    footer.classList.add("footerdarkMode");
-    menuIcon.style.color = "black";
-    navItems.style.color = "black";
-    background.innerHTML = "<i class='bx bxs-sun'>";
-    // document.getElementsByTagName('footer').style.display = 'none'
-  }
-});
+     footer.classList.add("footerdarkMode");
+     menuIcon.style.color = "black";
+   navItems.style.color = "black";
+ background.innerHTML = "<i class='bx bxs-sun'>";
+document.getElementsByTagName('footer').style.display = 'none'
+   }
+ });
 
-        </script>
+       </script>
 </body>
 </html>

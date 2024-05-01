@@ -27,7 +27,7 @@ if(isset($_POST["Submit"])) {
     alert("Company Successfully Inserted");
     setTimeout(function() {
       window.location.href = "index.php";
-    },5000); 
+    },500); 
   </script>';
   } 
   else {
